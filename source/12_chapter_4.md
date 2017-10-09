@@ -1,16 +1,71 @@
-# Research containing a figure
+# Análisis
 
-## Introduction
+## Metodología de desarrollo
 
-This is the introduction. Sed vulputate tortor at nisl blandit interdum. Cras sagittis massa ex, quis eleifend purus condimentum congue. Maecenas tristique, justo vitae efficitur mollis, mi nulla varius elit, in consequat ligula nulla ut augue. Phasellus diam sapien, placerat sit amet tempor non, lobortis tempus ante.
+Para la realización del proyecto y su documentación se ha utilizado el Rational Unified Process (RUP), junto con el Lenguaje Unificado de Modelado (UML). Se ha elegido este sistema ya que es la metodología estándar más utilizada, además de ser un grupo de metodologías que se adaptan muy bien a las necesidades de un producto.
 
-## Method
+## Especificación de requisitos del sistema
 
-Donec imperdiet, lectus vestibulum sagittis tempus, turpis dolor euismod justo, vel tempus neque libero sit amet tortor. Nam cursus commodo tincidunt.
+A continuación se enumeran los requisitos funcionales que se consideran fundamentales para el sistema. Éstos serán detallados utilizando casos de uso, describiendo tanto su escenario principal como sus posibles flujos alternativos. Además se detallará cada caso de uso con su diagrama de secuencia correspondiente.
 
-### Subsection 1
+### Gestión de usuarios
 
-This is the first part of the methodology. Duis tempor sapien sed tellus ultrices blandit. Sed porta mauris tortor, eu vulputate arcu dapibus ac. Curabitur sodales at felis efficitur sollicitudin. Quisque at neque sollicitudin, mollis arcu vitae, faucibus tellus.
+**Caso de uso: Añadir usuario**
+* **Descripción**: Caso de uso para la creación de un usuario.
+* **Actores**: Administrador.
+* **Precondiciones**: El administrador se ha identificado correctamente en el sistema.
+* **Postcondiciones**: Se crea un usuario con el perfil correspondiente.
+* **Escenario principal**:
+** El administrador introduce los datos del usuario y el nivel de privilegios.
+** El sistema valida que los datos son correctos y no hay ningún usuario con el mismo email.
+** El sistema crea el usuario y envía por correo el password al usuario.
+* Escenarios alternativos:
+** Alguno de los datos no es correcto.
+*** El sistema indica el error y el caso de uso vuelve al paso anterior.
+** Ya existe algún usuario con el mismo email.
+*** El sistema indica el error y el caso de uso vuelve al paso anterior.
+** En cualquier momento el administrador decide cancelar el proceso.
+*** El caso de uso finaliza.
+
+**Caso de uso: Editar usuario**
+* **Descripción**: Caso de uso para la edición de un usuario.
+* **Actores**: Usuario.
+* **Precondiciones**: El usuario que se intenta editar coincide con el identificado en el sistema o bien el usuario identificado es un administrador.
+* **Postcondiciones**: Se actualizan los datos del usuario.
+* **Escenario principal**:
+** El sistema muestra los datos actuales del usuario.
+** El usuario modifica sus datos.
+** El sistema valida que los datos introducidos son correctos y no hay ningún otro usuario con el mismo email.
+** El usuario elige guardar los datos.
+** El sistema modifica el usuario.
+* Escenarios alternativos:
+** Alguno de los datos no es correcto.
+*** El sistema indica el error y el caso de uso vuelve al paso anterior.
+** Ya existe algún usuario con el mismo email.
+*** El sistema indica el error y el caso de uso vuelve al paso anterior.
+** En cualquier momento el administrador decide cancelar el proceso.
+*** El caso de uso finaliza.
+
+**Caso de uso: editar usuario**
+* **Descripción**: Caso de uso para la edición de un usuario.
+* **Actores**: Usuario.
+* **Precondiciones**: El usuario que se intenta editar coincide con el identificado en el sistema o bien el usuario identificado es un administrador.
+* **Postcondiciones**: Se actualizan los datos del usuario.
+* **Escenario principal**:
+** El sistema muestra los datos actuales del usuario.
+** El usuario modifica sus datos.
+** El sistema valida que los datos introducidos son correctos y no hay ningún otro usuario con el mismo email.
+** El usuario elige guardar los datos.
+** El sistema modifica el usuario.
+* Escenarios alternativos:
+** Alguno de los datos no es correcto.
+*** El sistema indica el error y el caso de uso vuelve al paso anterior.
+** Ya existe algún usuario con el mismo email.
+*** El sistema indica el error y el caso de uso vuelve al paso anterior.
+** En cualquier momento el administrador decide cancelar el proceso.
+*** El caso de uso finaliza.
+
+
 
 ### Subsection 2
 
