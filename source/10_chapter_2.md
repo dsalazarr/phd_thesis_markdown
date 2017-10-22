@@ -1,8 +1,8 @@
 # Planificación
 
 <!--
-After the introductory chapter, it seems fairly common to 
-include a chapter that reviews the literature and 
+After the introductory chapter, it seems fairly common to
+include a chapter that reviews the literature and
 introduces methodology used throughout the thesis.
 -->
 La planificación se divide en varias fases, a continuación se explicará en detalle cada una de ellas.
@@ -40,9 +40,7 @@ Esta fase se ha ido solapando con las demás ya que se ha realizado conjuntamen
 
 ## Diagrama de Gantt
 
-A continuación se muestra el diagrama de Gantt1 realizado con la herramienta Planner2, en el que se puede comprobar los plazos utilizados para las fases del desarrollo del proyecto.
+A continuación se muestra el diagrama de Gantt1 realizado con Excel, en el que se puede comprobar los plazos utilizados para las fases del desarrollo del proyecto.
 
-<!--
-Meter diagrama de Gantt aqui
--->
+![Diagrama de Gantt \label{gantt}](source/figures/gantt.png)
 
