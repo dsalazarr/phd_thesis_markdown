@@ -358,4 +358,48 @@ For details on setting attributes like width and height, see:
 http://pandoc.org/MANUAL.html#extension-link_attributes
 -->
 
+## Modelo Conceptual de datos
+
 ![Diagrama de clases conceptual \label{diagrama_clases_conceptual}](source/figures/diagrama-clases-conceptual.png)
+
+## Modelo de comportamiento del sistema
+
+Para el modelo de comportamiento del sistema se mostrarán diferentes diagramas de secuencia del sistema. El diagrama define las interacciones entre actores y sistema, también se detallarán los contratosde las operaciones del sistema, para describir en detalle qué hace cada operación.
+
+Al existir muchos casos de uso similares, sólo se detallarán los más relevantes de cada subsistema.
+
+### Caso de uso: Añadir usuario
+
+![Caso de uso: Añadir usuario \label{secuencia_anadir_usuario}](source/figures/secuencia-anadir-usuario.png)
+
+### Caso de uso: Editar usuario
+
+![Caso de uso: Editar usuario \label{secuencia_editar_usuario}](source/figures/secuencia-editar-usuario.png)
+
+### Caso de uso: Añadir empresa
+
+![Caso de uso: Añadir empresa \label{secuencia_anadir_empresa}](source/figures/secuencia-anadir-empresa.png)
+
+### Caso de uso: Editar empresa
+
+![Caso de uso: Editar empresa \label{secuencia_editar_empresa}](source/figures/secuencia-editar-empresa.png)
+
+### Caso de uso: Añadir aplicación
+
+![Caso de uso: Añadir aplicacion \label{secuencia_anadir_aplicacion}](source/figures/secuencia-anadir-aplicacion.png)
+
+### Caso de uso: Editar aplicación
+
+![Caso de uso: Editar aplicacion \label{secuencia_editar_aplicacion}](source/figures/secuencia-editar-aplicacion.png)
+
+### Caso de uso: Borrar aplicación
+
+![Caso de uso: Borrar aplicacion \label{secuencia_borrar_aplicacion}](source/figures/secuencia-borrar-aplicacion.png)
+
+### Caso de uso: Editar usuarios de empresa con acceso a aplicación
+
+![Caso de uso: Editar acceso de usuarios de empresa \label{secuencia_editar_usuarios_empresa_aplicacion}](source/figures/secuencia-editar-usuarios-empresa-aplicacion.png)
+
+### Caso de uso: Obtener token de aplicación interna
+
+![Caso de uso: Obtener token de aplicación interna \label{secuencia_obtener_token}](source/figures/secuencia-obtener-token.png)
