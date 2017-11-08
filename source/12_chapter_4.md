@@ -372,29 +372,78 @@ Al existir muchos casos de uso similares, sólo se detallarán los más relevant
 
 ![Caso de uso: Añadir usuario \label{secuencia_anadir_usuario}](source/figures/secuencia-anadir-usuario.png)
 
+#### Contrato de la operación "introducir datos de usuario"
+
+* **Responsabilidades**: Registrar usuario en el sistema
+* **Referencias cruzadas**: Caso de uso *editar usuario*. Caso de uso *añadir usuario*
+* **Precondiciones**: No existe un usuario con email = w_email
+* **Postcondiciones**: Se crea una instancia de usuario U, se asignan w_email y datos.
+
 ### Caso de uso: Editar usuario
 
 ![Caso de uso: Editar usuario \label{secuencia_editar_usuario}](source/figures/secuencia-editar-usuario.png)
+
+#### Contrato de la operación "seleccionar usuario"
+
+* **Responsabilidades**: Abrir página de usuario
+* **Referencias cruzadas**: Caso de uso *Ver usuario*. Caso de uso *editar usuario*
+* **Precondiciones**: El usuario está creado en la empresa y el usuario logueado tiene permisos para verlo.
+* **Postcondiciones**: Se muestra la página del usuario.
 
 ### Caso de uso: Añadir empresa
 
 ![Caso de uso: Añadir empresa \label{secuencia_anadir_empresa}](source/figures/secuencia-anadir-empresa.png)
 
+#### Contrato de la operación "introducir datos de empresa"
+
+* **Responsabilidades**: Registrar empresa en el sistema
+* **Referencias cruzadas**: Caso de uso *añadir empresa*. Caso de uso *editar empresa*
+* **Precondiciones**: No existe una empresa con code = w_code
+* **Postcondiciones**: Se crea una instancia de empresa E, se asignan w_code y datos.
+
 ### Caso de uso: Editar empresa
 
 ![Caso de uso: Editar empresa \label{secuencia_editar_empresa}](source/figures/secuencia-editar-empresa.png)
+
+#### Contrato de la operación "seleccionar empresa"
+
+* **Responsabilidades**: Abrir página de empresa
+* **Referencias cruzadas**: Caso de uso *Ver empresa*. Caso de uso *añadir usuario*. Caso de uso *editar usuario*. Caso de uso *editar empresa*. Caso de uso *editar usuarios con acceso a aplicación*.
+* **Precondiciones**: La empresa existe en el sistema
+* **Postcondiciones**: Se muestra la página de la empresa con el listado de usuarios.
 
 ### Caso de uso: Añadir aplicación
 
 ![Caso de uso: Añadir aplicacion \label{secuencia_anadir_aplicacion}](source/figures/secuencia-anadir-aplicacion.png)
 
+#### Contrato de la operación "introducir datos de aplicación"
+
+* **Responsabilidades**: Registrar aplicación en el sistema
+* **Referencias cruzadas**: Caso de uso *añadir aplicación*. Caso de uso *editar aplicación*
+* **Precondiciones**: No existe una aplicación con code = w_code
+* **Postcondiciones**: Se crea una instancia de aplicación A, se asignan w_code y datos, se generan credenciales.
+
 ### Caso de uso: Editar aplicación
 
 ![Caso de uso: Editar aplicacion \label{secuencia_editar_aplicacion}](source/figures/secuencia-editar-aplicacion.png)
 
+#### Contrato de la operación "seleccionar aplicación"
+
+* **Responsabilidades**: Abrir página de empresa
+* **Referencias cruzadas**: Caso de uso *Ver aplicación*. Caso de uso *editar aplicación*. Caso de uso *borrar aplicación*
+* **Precondiciones**: La aplicación existe en el sistema
+* **Postcondiciones**: Se muestra la página de la aplicación.
+
 ### Caso de uso: Borrar aplicación
 
 ![Caso de uso: Borrar aplicacion \label{secuencia_borrar_aplicacion}](source/figures/secuencia-borrar-aplicacion.png)
+
+#### Contrato de la operación "borrar aplicación"
+
+* **Responsabilidades**: Borra aplicación en el sistema
+* **Referencias cruzadas**: Caso de uso *borrar aplicación*.
+* **Precondiciones**: Existe una aplicación con code = w_code
+* **Postcondiciones**: Se elimina la instancia de aplicación A. Se borran todos los accesos existentes para la aplicación.
 
 ### Caso de uso: Editar usuarios de empresa con acceso a aplicación
 
@@ -403,3 +452,11 @@ Al existir muchos casos de uso similares, sólo se detallarán los más relevant
 ### Caso de uso: Obtener token de aplicación interna
 
 ![Caso de uso: Obtener token de aplicación interna \label{secuencia_obtener_token}](source/figures/secuencia-obtener-token.png)
+
+#### Contrato de la operación "obtener token de acceso"
+
+* **Responsabilidades**: Genera un token para el usuario logueado.
+* **Referencias cruzadas**: Caso de uso *Obtener token de aplicación interna*.
+* **Precondiciones**: El usuario tiene acceso a la aplicación.
+* **Postcondiciones**: Se genera un token de acceso para el usuario.
+

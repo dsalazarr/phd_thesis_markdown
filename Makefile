@@ -27,7 +27,9 @@ help:
 pdf:
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.pdf" \
+	--listings \
 	-H "$(STYLEDIR)/preamble.tex" \
+	-H "$(STYLEDIR)/listings-setup.tex" \
 	--template="$(STYLEDIR)/template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/ref_format.csl" \
@@ -36,7 +38,7 @@ pdf:
 	-V papersize=a4paper \
 	-V documentclass:report \
 	-N \
-	--latex-engine=xelatex 
+	--latex-engine=xelatex
 
 tex:
 	pandoc "$(INPUTDIR)"/*.md \

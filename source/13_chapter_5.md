@@ -26,9 +26,18 @@ Dado que en el lenguaje elegido para implementar la aplicación es Python, se h
 
 ### Endpoints
 
-<!-- 
-TODO
---> 
+#### Empresas
+
+##### Visualización
+
+GET: /v1/companies
+
+* Headers:
+    * Content-Type: applicacion/json
+* Response (Lista de):
+    * **"id"**: 123,
+    * **"name"**: "Company",
+    * **"code"**: "company_1"
 
 ## Base de datos
 Para el diseño de la base de datos en la que se guardarán los datos manejados por la aplicación se usará un modelo relacional. Se usará MySQL como sistema de gestión de base de datos.
@@ -37,10 +46,13 @@ Para el diseño de la base de datos en la que se guardarán los datos manejados 
 <!--
 TODO
 -->
-<!-- 
+![Modelo Entidad Relación \label{modelo_er}](source/figures/er-model-pfc.png)
+\ref{modelo_er}
+
+<!--
 Table \ref{ref_a_table} shows us how to add a table. Integer tincidunt sed nisl eget pellentesque. Mauris eleifend, nisl non lobortis fringilla, sapien eros aliquet orci, vitae pretium massa neque eu turpis. Pellentesque tincidunt aliquet volutpat. Ut ornare dui id ex sodales laoreet.
 -->
-<!-- 
+<!--
 
 \newpage
 
@@ -51,7 +63,7 @@ Row 1               0.1                     0.2
 
 Row 2               0.3                     0.3
 
-Row 3               0.4                     0.4      
+Row 3               0.4                     0.4
 
 Row 4               0.5                     0.6
 
