@@ -101,6 +101,34 @@ Una vez finalizada la instalación de la aplicación el administrador de la empr
     * En cualquier momento el administrador decide cancelar el proceso.
         * El caso de uso finaliza.
 
+#### Caso de uso: Ver usuario.
+
+* **Descripción**: Caso de uso para seleccionar una empresa.
+* **Actores**: Usuario del sistema.
+* **Precondiciones**: El usuario tiene privilegios de usuario del sistema.
+* **Postcondiciones**: Se muestran los datos del usuario.
+* **Escenario principal**:
+    * El usuario elige un usuario para ver sus datos.
+    * El sistema muestra los datos del usuario.
+    * El sistema muestra las aplicaciones a las que tiene acceso actualmente.
+
+
+#### Caso de uso: Borrar usuario
+
+* **Descripción**: Caso de uso para el borrado de un usuario
+* **Actores**: Administrador.
+* **Precondiciones**: El usuario identificado en el sistema tiene permisos para borrar usuarios o bien es administrador de la empresa del usuario a borrar.
+* **Postcondiciones**: El usuario queda borrado
+* **Escenario principal**:
+    * El usuario selecciona un usuario para borrarlo.
+    * El sistema muestra los datos actuales del usuario.
+    * El usuario confirma que quiere borrar al usuario.
+    * El sistema confirma el borrado.
+* **Escenarios alternativos**:
+    * En cualquier momento el administrador decide cancelar el proceso.
+        * El caso de uso finaliza.
+
+
 ### Gestión de empresas
 
 A continuación se especifican los casos de uso necesarios para llevar a cabo la gestión de las empresas clientes del sistema.
@@ -156,6 +184,21 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
     * El sistema muestra los datos actuales de la empresa.
     * El sistema muestra los usuarios de la empresa.
     * El sistema muestra los productos contratados por la empresa.
+
+#### Caso de uso: Borrar empresa.
+
+* **Descripción**: Caso de uso para el borrado de una empresa.
+* **Actores**: Administrador.
+* **Precondiciones**: El usuario identificado en el sistema tiene permisos para borrar empresas.
+* **Postcondiciones**: La empresa queda borrada.
+* **Escenario principal**:
+    * El usuario selecciona una empresa para borrarla.
+    * El sistema muestra los datos actuales de la empresa.
+    * El usuario confirma que quiere borrar a la empresa.
+    * El sistema confirma el borrado.
+* **Escenarios alternativos**:
+    * En cualquier momento el administrador decide cancelar el proceso.
+        * El caso de uso finaliza.
 
 ### Gestión de productos
 
