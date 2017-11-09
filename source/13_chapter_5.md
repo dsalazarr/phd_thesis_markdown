@@ -34,10 +34,341 @@ GET: /v1/companies
 
 * Headers:
     * Content-Type: applicacion/json
+    * Authorization: Bearer \<token\>
 * Response (Lista de):
     * **"id"**: 123,
     * **"name"**: "Company",
     * **"code"**: "company_1"
+* Response codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+GET: /v1/companies/\<company-id\>
+
+* Headers:
+    * Content-Type: application/json
+    * Authorization: Bearer \<token\>
+* Response (JSON Object):
+    * **"id"**: 123,
+    * **"name"**: "Company",
+    * **"code"**: "company_1"
+* Response Codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+    * 404 NOT FOUND (*company-id* no encontrado)
+
+##### Creación
+
+POST: /v1/companies
+
+* Headers:
+    * Content-Type: applicacion/json
+    * Authorization: Bearer \<token\>
+* Request body (JSON Object):
+    * **"name"**: "Company",
+    * **"code"**: "company_1"
+* Response codes:
+    * 201 CREATED (Empresa creada)
+    * 400 BAD REQUEST (Dato incorrecto en el body)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+
+##### Actualización
+
+PUT: /v1/companies/\<company-id\>
+
+* Headers:
+    * Content-Type: application/json
+    * Authorization: Bearer \<token\>
+* Request body (JSON Object):
+    * **"name"**: "Company",
+    * **"code"**: "company_id"
+* Response codes:
+    * 200 OK (Empresa actualizada)
+    * 400 BAD REQUEST (Dato incorrecto en el body)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+##### Borrado
+
+DELETE: /v1/companies/\<company-id\>
+
+* Headers:
+    * Content-Type: application/json
+    * Authorization: Bearer \<token\>
+* Response codes:
+    * 204 NO CONTENT (Empresa borrada)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+
+#### Usuarios
+
+##### Visualización
+
+GET: /v1/companies/\<company-id\>/users
+
+* Headers:
+    * Content-Type: applicacion/json
+    * Authorization: Bearer \<token\>
+* Response (Lista de):
+    * **"id"**: 123,
+    * **"name"**: "User",
+    * **"email"**: "user@company.com"
+* Response codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+GET: /v1/companies/\<company-id\>/users/\<user-id\>
+
+* Headers:
+    * Content-Type: application/json
+    * Authorization: Bearer \<token\>
+* Response (JSON Object):
+    * **"id"**: 123,
+    * **"name"**: "User",
+    * **"email"**: "email@company.com"
+* Response Codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+    * 404 NOT FOUND (*company-id* o *user-id* no encontrado)
+
+##### Creación
+
+POST: /v1/companies/\<company-id\>/users
+
+* Headers:
+    * Content-Type: applicacion/json
+    * Authorization: Bearer \<token\>
+* Request body (JSON Object):
+    * **"name"**: "Nombre",
+    * **"email"**: "user@company.com",
+    * **"password"**: "password"
+* Response codes:
+    * 201 CREATED (Usuario creado)
+    * 400 BAD REQUEST (Dato incorrecto en el body)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+
+##### Actualización
+
+PUT: /v1/companies/\<company-id\>/users/\<user-id\>
+
+* Headers:
+    * Content-Type: application/json
+    * Authorization: Bearer \<token\>
+* Request body (JSON Object):
+    * **"name"**: "User",
+    * **"email"**: "email@company.com"
+    * **"password"**: "password"
+* Response codes:
+    * 200 OK (Usuario actualizada)
+    * 400 BAD REQUEST (Dato incorrecto en el body)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+##### Borrado
+
+DELETE: /v1/companies/\<company-id\>/users/\<user-id\>
+
+* Headers:
+    * Content-Type: application/json
+    * Authorization: Bearer \<token\>
+* Response codes:
+    * 204 NO CONTENT (Usuario borrado)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+#### Aplicaciones
+
+##### Visualización
+
+GET: /v1/applications
+
+* Headers:
+    * Content-Type: applicacion/json
+    * Authorization: Bearer \<token\>
+* Response (Lista de):
+    * **"id"**: 123,
+    * **"name"**: "application",
+    * **"client_id"**: "123123123",
+    * **"client_secret"**: "123123123",
+* Response codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+GET: /v1/applications/\<client-id\>
+
+* Headers:
+    * Content-Type: application/json
+    * Authorization: Bearer \<token\>
+* Response (JSON Object):
+    * **"id"**: 123,
+    * **"name"**: "User",
+    * **"client_id"**: "123123123",
+    * **"client_secret"**: "123123123",
+* Response Codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+    * 404 NOT FOUND (*client-id* no encontrado)
+
+##### Creación
+
+POST: /v1/applications/\<client-id\>
+
+* Headers:
+    * Content-Type: applicacion/json
+    * Authorization: Bearer \<token\>
+* Request body (JSON Object):
+    * **"name"**: "Nombre",
+* Response (JSON Object):
+    * **"id"**: 123,
+    * **"name"**: "User",
+    * **"client_id"**: "123123123",
+    * **"client_secret"**: "123123123",
+* Response codes:
+    * 201 CREATED (Aplicación creada)
+    * 400 BAD REQUEST (Dato incorrecto en el body)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+
+##### Actualización
+
+PUT: /v1/applications/\<client-id\>
+
+* Headers:
+    * Content-Type: application/json
+    * Authorization: Bearer \<token\>
+* Request body (JSON Object):
+    * **"name"**: "User",
+* Response codes:
+    * 200 OK (Aplicación actualizada)
+    * 400 BAD REQUEST (Dato incorrecto en el body)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+##### Borrado
+
+DELETE: /v1/applications/\<client-id\>
+
+* Headers:
+    * Content-Type: application/json
+    * Authorization: Bearer \<token\>
+* Response codes:
+    * 204 NO CONTENT (Aplicación borrada)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+#### Access Tokens
+
+##### Creación (authorization code)
+
+POST /v1/oauth2/authorization
+
+* Headers:
+    * Content-Type: application/json
+* Request body (JSON Object)
+    * **"username"**: "\<user_email\>",
+    * **"password"**: "\<user_password\>",
+    * **"client_id"**: "\<client_id\>"
+    * **"client_secret"**: "\<client_secret\>"
+    * **"redirect_uri"**: "http://auth_server"
+* Response body:
+    * Redirect to http://auth_server?code=code
+* Response codes:
+    * 302 Redirect (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+##### Creación (password grant)
+
+POST /v1/oauth2/access-tokens
+
+* Headers:
+    * Content-Type: application/json
+* Request body (JSON Object)
+    * **"grant_type"**: "password",
+    * **"username"**: "\<user_email\>",
+    * **"password"**: "\<user_password\>",
+    * **"client_id"**: "\<client_id\>"
+    * **"client_secret"**: "\<client_secret\>"
+* Response body:
+    * **"token"**: "token",
+    * **"refresh_token"**: "refresh_token",
+    * **"expires_in"**: 123123  (seconds)
+* Response codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+##### Creación (client_credentials grant)
+
+POST /v1/oauth2/access-tokens
+
+* Headers:
+    * Content-Type: application/json
+* Request body (JSON Object)
+    * **"grant_type"**: "client_credentials",
+    * **"client_id"**: "\<client_id\>"
+    * **"client_secret"**: "\<client_secret\>"
+* Response body:
+    * **"token"**: "token",
+    * **"refresh_token"**: "refresh_token",
+    * **"expires_in"**: 123123  (seconds)
+* Response codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+##### Creación (authorization_code grant)
+
+POST /v1/oauth2/access-tokens
+
+* Headers:
+    * Content-Type: application/json
+* Request body (JSON Object)
+    * **"grant_type"**: "authorization_code",
+    * **"client_id"**: "\<client_id\>"
+    * **"client_secret"**: "\<client_secret\>"
+    * **"code"**: "\<code\>"
+* Response body:
+    * **"token"**: "token",
+    * **"refresh_token"**: "refresh_token",
+    * **"expires_in"**: 123123  (seconds)
+* Response codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
+##### Actualización (refresh_token grant)
+
+POST /v1/oauth2/access-tokens
+
+* Headers:
+    * Content-Type: application/json
+* Request body (JSON Object)
+    * **"grant_type"**: "refresh_token",
+    * **"client_id"**: "\<client_id\>"
+    * **"client_secret"**: "\<client_secret\>"
+    * **"refresh_token"**: "\<refresh_token\>"
+* Response body:
+    * **"token"**: "token",
+    * **"refresh_token"**: "refresh_token",
+    * **"expires_in"**: 123123  (seconds)
+* Response codes:
+    * 200 OK (Success)
+    * 401 UNAUTHORIZED (Token de acceso inválido o no enviado)
+    * 403 FORBIDDEN (Sin permisos)
+
 
 ## Base de datos
 Para el diseño de la base de datos en la que se guardarán los datos manejados por la aplicación se usará un modelo relacional. Se usará MySQL como sistema de gestión de base de datos.
@@ -77,6 +408,104 @@ Table: This is the table caption. Suspendisse blandit dolor sed tellus venenatis
 <!--
 TODO
 -->
+
+#### Usuarios
+
+--------------------------------------------------------------------------------
+Atributos              Tipo                 Nulo             Index                Descripción
+-------------          ---------            ---------        -----------------    -----------------
+id                     INTEGER              NO               PRIMARY_KEY          Identificador autoincremental
+
+email                  VARCHAR(50)          NO               UNIQUE               Email de usuario, sirve para login
+
+password               VARCHAR(255)         NO               NO                   Password cifrado de usuario
+
+nombre                 VARCHAR(255)         NO               NO                   Nombre del usuario
+
+-----------------------------------------------------------------------------------
+
+
+#### Aplicaciones
+
+---------------------------------------------------------------------------------
+Atributos              Tipo                 Nulo             Index                Descripción
+-------------          ------------         -----------      --------------       ------------
+id                     INTEGER              NO               PRIMARY_KEY          Identificador autoincremental
+
+client_id              VARCHAR(50)          NO               UNIQUE               client id
+
+client_secret          VARCHAR(50)          NO               NO                   client secret
+
+name                   VARCHAR(50)          NO               NO                   Nombre de aplicación
+
+-----------------------------------------------------------------------------------------
+
+#### Empresas
+
+---------------------------------------------------------------------------------
+Atributos              Tipo                 Nulo             Index                Descripción
+-------------          ------------         -----------      --------------       ------------
+id                     INTEGER              NO               PRIMARY_KEY          Identificador autoincremental
+
+code                   VARCHAR(50)          NO               UNIQUE               Código identificador de la empresa
+
+name                   VARCHAR(50)          NO               NO                   Nombre de empresa
+
+-----------------------------------------------------------------------------------------
+
+
+#### Tokens de acceso
+
+---------------------------------------------------------------------------------
+Atributos              Tipo                 Nulo             Index                Descripción
+-------------          ------------         -----------      --------------       ------------
+id                     INTEGER              NO               PRIMARY_KEY          Identificador autoincremental
+
+token                  VARCHAR(50)          NO               UNIQUE               Token de acceso de usuario
+
+user_id                INTEGER              NO               FOREIGN_KEY          Id de usuario
+
+application_id         INTEGER              NO               FOREIGN_KEY          Id de aplicación
+
+permisos               VARCHAR(255)         NO               NO                   Permisos de token de usuario
+
+expires                INTEGER              NO               NO                   Segundos de expiración de token
+
+-----------------------------------------------------------------------------------------
+
+
+#### Refresh tokens
+
+---------------------------------------------------------------------------------
+Atributos              Tipo                 Nulo             Index                Descripción
+-------------          ------------         -----------      --------------       ------------
+id                     INTEGER              NO               PRIMARY_KEY          Identificador autoincremental
+
+token                  VARCHAR(50)          NO               UNIQUE               Token de refresco de usuario
+
+access_token_id        INTEGER              NO               FOREIGN_KEY          Id de usuario
+
+-----------------------------------------------------------------------------------------
+
+
+#### Authorization codes
+
+---------------------------------------------------------------------------------
+Atributos              Tipo                 Nulo             Index                Descripción
+-------------          ------------         -----------      --------------       ------------
+id                     INTEGER              NO               PRIMARY_KEY          Identificador autoincremental
+
+code                   VARCHAR(50)          NO               UNIQUE               Código de autorización
+
+application_id         INTEGER              NO               FOREIGN_KEY          Id de usuario
+
+user_id                INTEGER              NO               FOREIGN_KEY          Id de usuario
+
+expires                INTEGER              NO               NO                   Segundos de expiración de token
+
+-----------------------------------------------------------------------------------------
+
+
 
 ## Arquitectura del sistema
 
