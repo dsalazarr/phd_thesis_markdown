@@ -422,7 +422,26 @@ password               VARCHAR(255)         NO               NO                 
 
 nombre                 VARCHAR(255)         NO               NO                   Nombre del usuario
 
+apellido               VARCHAR(255)         NO               NO                   Apellidos del usuario
+
+company_id             INTEGER              NO               FOREIGN_KEY          Id de empresa
+
 -----------------------------------------------------------------------------------
+
+##### Normalización
+
+* La tabla está en primera forma normal ya que:
+    * Todos los atributos son atómicos.
+    * Tiene clave primaria única (id).
+    * La CP no puede ser nula.
+* La tabla está en segunda forma normal ya que:
+    * Está en 1FN.
+    * Al ser la clave única no puede haber dependencias parciales.
+* La tabla está en tercera forma normal ya que:
+    * Está en 2FN.
+    * No hay dependencias funcionales transitivas.
+* La tabla está en forma normal de Boyce-Codd ya que:
+    * Para toda dependencia funcional X->A X es superllave.
 
 
 #### Aplicaciones
@@ -440,6 +459,23 @@ name                   VARCHAR(50)          NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
+
+##### Normalización
+
+* La tabla está en primera forma normal ya que:
+    * Todos los atributos son atómicos.
+    * Tiene clave primaria única (id).
+    * La CP no puede ser nula.
+* La tabla está en segunda forma normal ya que:
+    * Está en 1FN.
+    * Al ser la clave única no puede haber dependencias parciales.
+* La tabla está en tercera forma normal ya que:
+    * Está en 2FN.
+    * No hay dependencias funcionales transitivas.
+* La tabla está en forma normal de Boyce-Codd ya que:
+    * Para toda dependencia funcional X->A X es superllave.
+
+
 #### Empresas
 
 ---------------------------------------------------------------------------------
@@ -453,6 +489,20 @@ name                   VARCHAR(50)          NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
+##### Normalización
+
+* La tabla está en primera forma normal ya que:
+    * Todos los atributos son atómicos.
+    * Tiene clave primaria única (id).
+    * La CP no puede ser nula.
+* La tabla está en segunda forma normal ya que:
+    * Está en 1FN.
+    * Al ser la clave única no puede haber dependencias parciales.
+* La tabla está en tercera forma normal ya que:
+    * Está en 2FN.
+    * No hay dependencias funcionales transitivas.
+* La tabla está en forma normal de Boyce-Codd ya que:
+    * Para toda dependencia funcional X->A X es superllave.
 
 #### Tokens de acceso
 
@@ -473,6 +523,20 @@ expires                INTEGER              NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
+##### Normalización
+
+* La tabla está en primera forma normal ya que:
+    * Todos los atributos son atómicos.
+    * Tiene clave primaria única (id).
+    * La CP no puede ser nula.
+* La tabla está en segunda forma normal ya que:
+    * Está en 1FN.
+    * Al ser la clave única no puede haber dependencias parciales.
+* La tabla está en tercera forma normal ya que:
+    * Está en 2FN.
+    * No hay dependencias funcionales transitivas.
+* La tabla está en forma normal de Boyce-Codd ya que:
+    * Para toda dependencia funcional X->A X es superllave.
 
 #### Refresh tokens
 
@@ -487,6 +551,20 @@ access_token_id        INTEGER              NO               FOREIGN_KEY        
 
 -----------------------------------------------------------------------------------------
 
+##### Normalización
+
+* La tabla está en primera forma normal ya que:
+    * Todos los atributos son atómicos.
+    * Tiene clave primaria única (id).
+    * La CP no puede ser nula.
+* La tabla está en segunda forma normal ya que:
+    * Está en 1FN.
+    * Al ser la clave única no puede haber dependencias parciales.
+* La tabla está en tercera forma normal ya que:
+    * Está en 2FN.
+    * No hay dependencias funcionales transitivas.
+* La tabla está en forma normal de Boyce-Codd ya que:
+    * Para toda dependencia funcional X->A X es superllave.
 
 #### Authorization codes
 
@@ -505,7 +583,20 @@ expires                INTEGER              NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
+##### Normalización
 
+* La tabla está en primera forma normal ya que:
+    * Todos los atributos son atómicos.
+    * Tiene clave primaria única (id).
+    * La CP no puede ser nula.
+* La tabla está en segunda forma normal ya que:
+    * Está en 1FN.
+    * Al ser la clave única no puede haber dependencias parciales.
+* La tabla está en tercera forma normal ya que:
+    * Está en 2FN.
+    * No hay dependencias funcionales transitivas.
+* La tabla está en forma normal de Boyce-Codd ya que:
+    * Para toda dependencia funcional X->A X es superllave.
 
 ## Arquitectura del sistema
 
