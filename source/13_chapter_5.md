@@ -702,9 +702,28 @@ La infraestructura debe estar preparada y configurada para soportar nuestra apli
 
 ## Métricas y monitorización
 
+Para una aplicación de esta escala se hace imprescindible generar métricas de las cuales en el futuro se pueda extraer información, igualmente la aplicación tiene que estar monitorizada, para en caso de fallos, informar a los administradores del sistema para resolverlo lo antes posible.
+
 ### Métricas
+
+Las métricas son puntos de datos generados por la aplicación que se envían a un servidor de métricas, estas métricas son configuradas de forma que se pueda extraer información útil de ellas.
+
+Para un software comercial es imprescindible tener este tipo de información para conseguir una mayor monetización, además de poder añadir nuevas características en base a la información extraída.
+
+Estas métricas se componen de un backend o base de datos y de un dashboard para configurarlas y visualizarlas, para el backend hemos elegido *InfluxDB* que es una de las bases de datos más utilizadas para este propósito.
+
+*InfluxDB* es una base de datos de código abierto que almacena series basadas en el tiempo. Está escrita en *Go* y optimizada para ser usada en entornos de tiempo real y de alta disponibilidad.
+
+Como dashboard hemos utilizado *Grafana*, es un dashboard configurable totalmente compatible con *InfluxDB*.
+
+![Dashboard de ejemplo de Grafana \label{dashboard}](source/figures/dashboard.png)
 
 ### Monitorización
 
+La monitorización es una parte importante para controlar la estabilidad del sistema, sin unas herramientas adecuadas no podemos asegurar la disponibilidad y el buen funcionamiento de nuestro software, para ello existen diferentes herramientas, como la anteriormente mencionada *Grafana* y a nivel de procesos *monit*, monit nos asegura que nuestros servicios estarán siempre levantados, si hay alguna caída, la herramienta los volverá a levantar.
+
 ### Alertas
+
+En caso de caída de servicio necesitamos tener un sistema de alertas que nos comunique el fallo correspondiente, para ello se utilizará además de *monit*, *Sensu*, que es un sistema configurable de checks para nuestros servicios, *Sensu* es a su vez compatible con sistemas de alerta a equipos de operaciones, como por ejemplo *OpsGenie*.
+
 
