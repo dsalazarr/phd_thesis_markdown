@@ -77,3 +77,43 @@ Normalmente para las pruebas de aceptación se trabaja sobre historias de usuari
     * Si el usuario solicitado es X, no se permitirá continuar por seguridad, primero otro administrador deberá quitarle el privilegio de administrador y borrarle.
     * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
     * Si el proceso es correcto el usuario Y dejará de aparecer en la lista de usuarios activos de la empresa.
+
+
+### Caso de uso Añadir empresa
+
+* Historia de usuario: *Yo como usuario administrador del sistema, quiero poder añadir una empresa en el sistema, de forma que aparezca en la lista de empresas disponibles.*
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Si el usuario envía algún dato incorrecto se devolverá un error indicando de forma detallada el error.
+    * Si el usuario envía un nombre o código ya existente se devolverá un error indicándolo.
+    * Una vez finalizado el proceso la empresa aparecerá en la lista de empresas activas.
+
+### Caso de uso Editar empresa
+
+* Historia de usuario: *Yo como usuario administrador del sistema, quiero poder editar una empresa de las disponibles en el sistema, de forma que los datos queden actualizados.*
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Si el usuario envía algún dato incorrecto se devolverá un error indicando de forma detallada el error.
+    * Si el usuario envía un nombre o código ya existente se devolverá un error indicándolo.
+    * Una vez finalizado el proceso los datos de la empresa quedarán actualizados.
+
+### Caso de uso Ver empresa
+
+* Historia de usuario: *Yo como usuario administrador del sistema, quiero poder ver los datos de una empresa X.*
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Una vez finalizado el proceso los datos de la empresa se devolverán al usuario.
+
+* Historia de usuario: *Yo como usuario administrador de la empresa X, quiero poder ver los datos de la empresa X.*
+* Pruebas de aceptación:
+    * Si el usuario identificado pertenece a X pero no es administrador se devolverá un error indicando que no hay permisos.
+    * Si el usuario identificado no pertenece a X se devolverá un error indicando que X no existe.
+    * Una vez finalizado el proceso los datos de la empresa se devolverán al usuario.
+
+### Caso de uso Borrar empresa
+
+* Historia de usuario: *Yo como usuario X, administrador del sistema quiero poder borrar una empresa Y y que esta desaparezca del listado de empresas disponibles.
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Si el proceso es correcto la empresa Y dejará de aparecer en la lista de empresas activas.
+    * Si el proceso es correcto todos los usuarios de la empresa Y dejarán de tener acceso y quedarán inhabilitados.
