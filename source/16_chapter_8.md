@@ -112,8 +112,79 @@ Normalmente para las pruebas de aceptación se trabaja sobre historias de usuari
 
 ### Caso de uso Borrar empresa
 
-* Historia de usuario: *Yo como usuario X, administrador del sistema quiero poder borrar una empresa Y y que esta desaparezca del listado de empresas disponibles.
+* Historia de usuario: *Yo como usuario X, administrador del sistema quiero poder borrar una empresa Y y que esta desaparezca del listado de empresas disponibles.*
 * Pruebas de aceptación:
     * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
     * Si el proceso es correcto la empresa Y dejará de aparecer en la lista de empresas activas.
     * Si el proceso es correcto todos los usuarios de la empresa Y dejarán de tener acceso y quedarán inhabilitados.
+
+### Caso de uso Registrar aplicación
+
+* Historia de usuario: *Yo, como usuario X, administrador del sistema, quiero poder registrar una aplicación en el sistema y que esta aparezca en el listado de aplicaciones disponibles.*
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Una vez finalizado el proceso la aplicación aparecerá en la lista de aplicaciones activas.
+    * Si el usuario envía algún dato incorrecto se devolverá un error indicando de forma detallada el error.
+    * Si el usuario envía un nombre o código ya existente se devolverá un error indicándolo.
+
+### Caso de uso Editar aplicación
+
+* Historia de usuario: *Yo, como usuario administrador del sistema, quiero poder editar una aplicación de las disponibles en el sistema, de forma que los datos queden actualizados.*
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Si el usuario envía algún dato incorrecto se devolverá un error indicando de forma detallada el error.
+    * Si el usuario envía un nombre o código ya existente se devolverá un error indicándolo.
+    * Si el usuario selecciona una aplicación no existente, se devolverá un error indicándolo.
+    * Una vez finalizado el proceso los datos de la aplicación quedarán actualizados.
+
+### Caso de uso Ver aplicación
+
+* Historia de usuario: *Yo, como usuario administrador del sistema, quiero poder ver los datos de una aplicación X.*
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Una vez finalizado el proceso los datos de la aplicación se devolverán al usuario.
+    * Si el usuario selecciona una aplicación no existente, se devolverá un error indicándolo.
+
+### Caso de uso Borrar aplicación
+
+* Historia de usuario: *Yo como usuario X, administrador del sistema quiero poder borrar una empresa Y y que esta desaparezca del listado de empresas disponibles.*
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Si el proceso es correcto la empresa Y dejará de aparecer en la lista de empresas activas.
+    * Si el proceso es correcto todos los usuarios de la empresa Y dejarán de tener acceso y quedarán inhabilitados.
+
+### Caso de uso Editar usuarios de empresa con acceso a aplicación
+
+* Historia de usuario: *Yo como usuario X, administrador de la empresa Y quiero poder dar acceso a un usuario U de mi empresa a una aplicación Z que tengo contratada.*
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Si el usuario que quiero añadir no pertenece a mi empresa se mostrará un error.
+    * Si la aplicación Z no está contratada por mi empresa se mostrará un error.
+    * Una vez finalizado el proceso la aplicación Z podrá sacar un token en nombre del usuario U.
+    * Una vez finalizado el proceso el usuario U podrá usar la aplicación Z.
+    * Una vez finalizado el proceso el usuario U aparecerá en el listado de usuarios con acceso a Z.
+
+### Caso de uso Editar aplicaciones a las que tiene acceso una empresa
+
+* Historia de usuario: *Yo, como usuario X, administrador del sistema, quiero dar acceso a una empresa Y a una aplicación Z.
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Si la aplicación no existe se mostrará un error.
+    * Si la empresa ya tiene acceso a la aplicación se mostrará un error.
+    * Una vez finalizado el proceso la aplicación aparecerá entre las disponibles para los administradores de la empresa Y.
+
+### Caso de uso Registrar aplicación externa
+
+* Historia de usuario: *Yo, como usuario X, administrador del sistema, quiero poder registrar una aplicación externa en el sistema y que esta aparezca en el listado de aplicaciones disponibles.*
+* Pruebas de aceptación:
+    * Si el usuario identificado no tiene rol de administrador se devolverá un error en el que se indique que no hay permisos.
+    * Una vez finalizado el proceso la aplicación aparecerá en la lista de aplicaciones activas.
+    * Si el usuario envía algún dato incorrecto se devolverá un error indicando de forma detallada el error.
+    * Si el usuario envía un nombre o código ya existente se devolverá un error indicándolo.
+
+### Caso de uso Obtener token de usuario desde aplicación
+
+* Historia de usuario: *Yo, como usuario X, usuario de una empresa Y, quiero poder utilizar una aplicación registrada en el sistema a la que tengo acceso.*
+* Pruebas de aceptación:
+    * Si el usuario no tiene acceso a la aplicación, el sistema devolverá un error que la aplicación deberá mostrar al usuario.
+    * Si el usuario tiene acceso a la aplicación, el sistema devolverá un token que la aplicación usará a partir de ese momento dando acceso al usuario.
