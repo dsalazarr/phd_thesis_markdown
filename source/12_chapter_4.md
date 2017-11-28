@@ -308,69 +308,157 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
     * El gestor decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
-## Integraciones
+## Gestión de incidencias
 
-![Diagrama de casos de uso de integraciones \label{gestion_integraciones}](source/figures/gestion-integraciones.png){ width=50% }
 
-#### Caso de uso: Registrar aplicación externa
+#### Caso de uso: Crear incidencia de aplicación
 
-* **Descripción**: Registra una nueva aplicación externa en el sistema.
-* **Actores**: Administrador de aplicaciones.
-* **Precondiciones**: El usuario identificado en el sistema es un administrador de aplicaciones.
-* **Postcondiciones**: La aplicación externa queda registrada.
-* **Escenario principal**:
-    * El usuario introduce los datos de la aplicación.
-    * El sistema comprueba que son correctos.
-    * El usuario introduce la url externa para hacer la integración.
-    * El sistema prueba la conexión.
-    * El sistema guarda los datos.
-* **Escenarios alternativos**:
-    * Los datos son incorrectos.
-        * El sistema lo indica y vuelve al paso anterior.
-    * La conexión con la url externa no se puede realizar.
-        * El sistema lo indica y vuelve al paso anterior.
-    * El gestor decide cancelar el proceso en cualquier momento
-        * El caso de uso finaliza
-
-#### Caso de uso: Obtener token de usuario desde aplicación interna
-
-* **Descripción**: Un usuario obtiene un token a través de una aplicación interna.
+* **Descripción**: Un usuario crea una incidencia relacionada con una aplicación.
 * **Actores**: Usuario
-* **Precondiciones**: El usuario existe en el sistema y tiene acceso a la aplicación.
-* **Postcondiciones**: La aplicación recibe el token de usuario.
+* **Precondiciones**: El usuario tiene acceso a la aplicación seleccionada.
+* **Postcondiciones**: La incidencia queda registrada y visible para los administradores.
 * **Escenario principal**:
-    * La aplicación redirige al usuario a la web del sistema para identificarse.
-    * El usuario se identifica en el sistema.
-    * El sistema comprueba los datos son correctos.
-    * El sistema comprueba que el usuario tiene acceso a la aplicación.
-    * El sistema devuelve el token a la aplicación.
+    * El usuario selecciona crear incidencia en una aplicación
+    * El sistema muestra el formulario de envío
+    * El usuario redacta la incidencia y la envía
+    * El sistema la registra como pendiente y queda visible a los administradores.
 * **Escenarios alternativos**:
     * Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario identificado no tiene acceso a la aplicación.
+    * La aplicación seleccionada no es accesible por el usuario
         * El sistema lo indica y el caso de uso termina
     * El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
-#### Caso de uso: Obtener token de usuario desde apliación externa
+#### Caso de uso: Añadir comentario a incidencia
 
-* **Descripción**: Un usuario obtiene un token a través de una aplicación externa.
+* **Descripción**: Un usuario comenta una incidencia.
 * **Actores**: Usuario
-* **Precondiciones**: El usuario existe en el sistema y tiene acceso a la aplicación.
-* **Postcondiciones**: La aplicación recibe el token de usuario.
+* **Precondiciones**: El usuario tiene acceso a la aplicación seleccionada y la incidencia ha sido registrada por un usuario de la empresa.
+* **Postcondiciones**: El comentario se añade
 * **Escenario principal**:
-    * La aplicación redirige al usuario a la web del sistema para identificarse.
-    * El usuario se identifica en la aplicación.
-    * El sistema redirige a la web de la aplicación externa.
-    * El usuario se identifica en la aplicación externa.
-    * El sistema devuelve el token a la aplicación.
+    * El usuario selecciona una incidencia creada por él y selecciona añadir un comentario.
+    * El sistema muestra el formulario.
+    * El usuario introduce los datos.
+    * El sistema lo guarda.
 * **Escenarios alternativos**:
     * Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario identificado no tiene acceso a la aplicación.
+    * La aplicación seleccionada no es accesible por el usuario
+        * El sistema lo indica y el caso de uso termina
+    * La incidencia seleccionada no ha sido creada por un usuario de la empresa.
         * El sistema lo indica y el caso de uso termina
     * El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
+
+#### Caso de uso: Cerrar incidencia
+
+* **Descripción**: Un usuario administrador completa una incidencia
+* **Actores**: Administrador
+* **Precondiciones**: El usuario es administrador
+* **Postcondiciones**: La incidencia queda resuelta
+* **Escenario principal**:
+    * El usuario selecciona una incidencia.
+    * El sistema muestra los datos.
+    * El usuario selecciona completarla.
+    * El sistema muestra el formulario de resolución.
+    * El usuario redacta la resolución y envía.
+    * El sistema cierra la incidencia y notifica al creador.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Borrar incidencia
+
+* **Descripción**: Un usuario borra una incidencia creada por él.
+* **Actores**: Usuario
+* **Precondiciones**: El usuario tiene acceso a la aplicación seleccionada.
+* **Postcondiciones**: La incidencia queda borrada.
+* **Escenario principal**:
+    * El usuario selecciona una incidencia creada por él y selecciona borrarla.
+    * El sistema pide confirmación.
+    * El usuario confirma.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * La aplicación seleccionada no es accesible por el usuario
+        * El sistema lo indica y el caso de uso termina
+    * La incidencia seleccionada no ha sido creada por el usuario.
+        * El sistema lo indica y el caso de uso termina
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+## Gestión de mensajes
+
+#### Caso de uso: Enviar mensaje a otro usuario
+
+* **Descripción**: Un usuario envía un mensaje a otro
+* **Actores**: Usuario
+* **Precondiciones**: El destinatario está en la misma empresa que el usuario.
+* **Postcondiciones**: El destinatario recibe el mensaje enviado en su bandeja de entrada.
+* **Escenario principal**:
+    * El usuario selecciona enviar un mensaje nuevo.
+    * El sistema muestra el formulario de envío
+    * El usuario selecciona el usuario destino
+    * El sistema marca el usuario seleccionado como destinatario
+    * El usuario redacta el mensaje y lo envía.
+    * El sistema envía el mensaje al destinatario
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario destinatario no pertenece a la misma empresa
+        * El sistema lo indica y el caso de uso termina
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Ver bandeja de entrada
+
+* **Descripción**: Se muestra la bandeja de entrada de un usuario.
+* **Actores**: Usuario
+* **Precondiciones**: El usuario existe y está logueado
+* **Postcondiciones**: Se muestra la bandeja de entrada con todos los mensajes recibidos.
+* **Escenario principal**:
+    * El usuario selecciona Ver bandeja de entrada.
+    * El sistema muestra la lista de mensajes.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Ver mensaje
+
+* **Descripción**: Se muestra la bandeja de entrada de un usuario.
+* **Actores**: Usuario
+* **Precondiciones**: El usuario existe y está logueado
+* **Postcondiciones**: Se muestra la bandeja de entrada con todos los mensajes recibidos.
+* **Escenario principal**:
+    * El usuario selecciona un mensaje de su bandeja de entrada.
+    * El sistema muestra el contenido del mensaje.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Borrar mensaje
+
+* **Descripción**: Se muestra la bandeja de entrada de un usuario.
+* **Actores**: Usuario
+* **Precondiciones**: El usuario existe y está logueado
+* **Postcondiciones**: Se muestra la bandeja de entrada con todos los mensajes recibidos.
+* **Escenario principal**:
+    * El usuario selecciona un mensaje de su bandeja de entrada.
+    * El sistema muestra el contenido del mensaje.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+## Gestión de Reglas de conexión
 
 #### Caso de uso: Crear regla de acceso de usuario
 
@@ -415,6 +503,8 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
         * El sistema lo indica y el caso de uso vuelve al paso anterior
     * El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
+
+## Gestión de configuración
 
 #### Caso de uso: Añadir valor de configuración de aplicación
 
@@ -604,6 +694,89 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
     * El usuario rechaza la confirmación
         * El caso de uso finaliza
     * La empresa del usuario no tiene acceso a esta aplicación
+        * El caso de uso finaliza
+
+## Integraciones
+
+![Diagrama de casos de uso de integraciones \label{gestion_integraciones}](source/figures/gestion-integraciones.png){ width=50% }
+
+#### Caso de uso: Registrar aplicación externa
+
+* **Descripción**: Registra una nueva aplicación externa en el sistema.
+* **Actores**: Administrador de aplicaciones.
+* **Precondiciones**: El usuario identificado en el sistema es un administrador de aplicaciones.
+* **Postcondiciones**: La aplicación externa queda registrada.
+* **Escenario principal**:
+    * El usuario introduce los datos de la aplicación.
+    * El sistema comprueba que son correctos.
+    * El usuario introduce la url externa para hacer la integración.
+    * El sistema prueba la conexión.
+    * El sistema guarda los datos.
+* **Escenarios alternativos**:
+    * Los datos son incorrectos.
+        * El sistema lo indica y vuelve al paso anterior.
+    * La conexión con la url externa no se puede realizar.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El gestor decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Obtener token de usuario desde aplicación interna
+
+* **Descripción**: Un usuario obtiene un token a través de una aplicación interna.
+* **Actores**: Usuario
+* **Precondiciones**: El usuario existe en el sistema y tiene acceso a la aplicación.
+* **Postcondiciones**: La aplicación recibe el token de usuario.
+* **Escenario principal**:
+    * La aplicación redirige al usuario a la web del sistema para identificarse.
+    * El usuario se identifica en el sistema.
+    * El sistema comprueba los datos son correctos.
+    * El sistema comprueba que el usuario tiene acceso a la aplicación.
+    * El sistema devuelve el token a la aplicación.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario identificado no tiene acceso a la aplicación.
+        * El sistema lo indica y el caso de uso termina
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Obtener token de usuario desde apliación externa
+
+* **Descripción**: Un usuario obtiene un token a través de una aplicación externa.
+* **Actores**: Usuario
+* **Precondiciones**: El usuario existe en el sistema y tiene acceso a la aplicación.
+* **Postcondiciones**: La aplicación recibe el token de usuario.
+* **Escenario principal**:
+    * La aplicación redirige al usuario a la web del sistema para identificarse.
+    * El usuario se identifica en la aplicación.
+    * El sistema redirige a la web de la aplicación externa.
+    * El usuario se identifica en la aplicación externa.
+    * El sistema devuelve el token a la aplicación.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario identificado no tiene acceso a la aplicación.
+        * El sistema lo indica y el caso de uso termina
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Refrescar token de usuario
+
+* **Descripción**: Un usuario obtiene un nuevo token a partir de un token de refresco
+* **Actores**: Usuario
+* **Precondiciones**: El usuario existe en el sistema y tiene acceso a la aplicación y tiene un token de refresco.
+* **Postcondiciones**: La aplicación recibe el token de usuario.
+* **Escenario principal**:
+    * La aplicación intenta usar un token expirado.
+    * El sistema responde con un 401
+    * La aplicación manda una petición de refresco con el token de refresco.
+    * El sistema devuelve un nuevo token
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario identificado no tiene acceso a la aplicación.
+        * El sistema lo indica y el caso de uso termina
+    * El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Importar usuarios desde módulo externo
