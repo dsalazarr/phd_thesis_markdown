@@ -416,6 +416,196 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
     * El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
+#### Caso de uso: Añadir valor de configuración de aplicación
+
+* **Descripción**: Se añade un valor de configuración para la aplicación. (Abstracto)
+* **Actores**: Administrador
+* **Precondiciones**: La aplicación existe en el sistema
+* **Postcondiciones**: El valor se añade a la configuración de aplicación
+* **Escenario principal**:
+    * El administrador añade la clave de configuración
+    * El administrador añade el valor de configuración
+    * El sistema valida los datos
+    * El sistema los añade a la configuración
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * Algún parámetro es incorrecto
+        * El sistema lo indica y el caso de uso vuelve al paso anterior
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Borrar valor de configuración de aplicación
+
+* **Descripción**: Se borra un valor de configuración para la aplicación. (Abstracto)
+* **Actores**: Administrador
+* **Precondiciones**: El valor existe en la configuración de la aplicación
+* **Postcondiciones**: El valor se borra de la configuración de aplicación
+* **Escenario principal**:
+    * El administrador selecciona la clave a borrar
+    * El sistema pide confirmación
+    * El administrador confirma el borrado
+    * El sistema elimina el valor
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+    * El usuario rechaza la confirmación
+        * El caso de uso finaliza
+
+#### Caso de uso: Crear configuración de aplicación
+
+* **Descripción**: Se crea un set de metadatos de configuración para la aplicación
+* **Actores**: Administrador
+* **Precondiciones**: La aplicación existe en el sistema
+* **Postcondiciones**: El set de configuración se añade a la aplicación
+* **Escenario principal**:
+    * El administrador entra en el menú de la aplicación y elige crear configuración
+    * El sistema muestra el formulario
+    * Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
+    * La configuración se añade a la aplicación
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Editar configuración de aplicación
+
+* **Descripción**: Editar un set de configuración ya creado
+* **Actores**: Administrador
+* **Precondiciones**: La aplicación existe en el sistema y tiene una configuración creada
+* **Postcondiciones**: El set de configuración queda modificado
+* **Escenario principal**:
+    * El administrador entra en el menú de la aplicación y elige editar su configuración
+    * El sistema muestra el formulario con los valores precargados
+    * Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
+    * Se realiza el caso de uso *eliminar valor de configuración* tantas veces como sea necesario.
+    * La configuración queda modificada.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Borrar configuración de aplicación
+
+* **Descripción**: Borrar un set de configuración ya creado
+* **Actores**: Administrador
+* **Precondiciones**: La aplicación existe en el sistema y tiene una configuración creada
+* **Postcondiciones**: El set de configuración queda borrado
+* **Escenario principal**:
+    * El administrador entra en el menú de la aplicación y elige borrar su configuración
+    * El sistema pide confirmación
+    * El administrador confirma
+    * El set de configuración queda eliminado.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+    * El usuario rechaza la confirmación
+        * El caso de uso finaliza
+
+#### Caso de uso: Añadir valor de configuración de aplicación para empresa
+
+* **Descripción**: Se añade un valor de configuración de empresa para la aplicación. (Abstracto)
+* **Actores**: Administrador de empresa
+* **Precondiciones**: La aplicación existe en el sistema
+* **Postcondiciones**: El valor se añade a la configuración de aplicación de empresa
+* **Escenario principal**:
+    * El administrador añade la clave de configuración
+    * El administrador añade el valor de configuración
+    * El sistema valida los datos
+    * El sistema los añade a la configuración
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * Algún parámetro es incorrecto
+        * El sistema lo indica y el caso de uso vuelve al paso anterior
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Borrar valor de configuración de aplicación de empresa
+
+* **Descripción**: Se borra un valor de configuración para la aplicación. (Abstracto)
+* **Actores**: Administrador
+* **Precondiciones**: El valor existe en la configuración de la aplicación
+* **Postcondiciones**: El valor se borra de la configuración de aplicación
+* **Escenario principal**:
+    * El administrador selecciona la clave a borrar
+    * El sistema pide confirmación
+    * El administrador confirma el borrado
+    * El sistema elimina el valor
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+    * El usuario rechaza la confirmación
+        * El caso de uso finaliza
+
+#### Caso de uso: Crear configuración de aplicación de empresa
+
+* **Descripción**: Se crea un set de metadatos de configuración para la aplicación
+* **Actores**: Administrador de empresa
+* **Precondiciones**: La aplicación existe en el sistema y la empresa tiene acceso a ella
+* **Postcondiciones**: El set de configuración se añade a la aplicación
+* **Escenario principal**:
+    * El administrador entra en el menú de la aplicación y elige crear configuración
+    * El sistema muestra el formulario
+    * Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
+    * La configuración se añade a la aplicación
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+    * La empresa del usuario no tiene acceso a esta aplicación
+        * El caso de uso finaliza
+
+#### Caso de uso: Editar configuración de aplicación de empresa
+
+* **Descripción**: Editar un set de configuración ya creado
+* **Actores**: Administrador
+* **Precondiciones**: La aplicación existe en el sistema y tiene una configuración creada y la empresa tiene acceso a ella
+* **Postcondiciones**: El set de configuración queda modificado
+* **Escenario principal**:
+    * El administrador entra en el menú de la aplicación y elige editar su configuración
+    * El sistema muestra el formulario con los valores precargados
+    * Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
+    * Se realiza el caso de uso *eliminar valor de configuración* tantas veces como sea necesario.
+    * La configuración queda modificada.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+    * La empresa del usuario no tiene acceso a esta aplicación
+        * El caso de uso finaliza
+
+#### Caso de uso: Borrar configuración de aplicación
+
+* **Descripción**: Borrar un set de configuración ya creado
+* **Actores**: Administrador
+* **Precondiciones**: La aplicación existe en el sistema y tiene una configuración creada y la empresa tiene acceso a la aplicación
+* **Postcondiciones**: El set de configuración queda borrado
+* **Escenario principal**:
+    * El administrador entra en el menú de la aplicación y elige borrar su configuración
+    * El sistema pide confirmación
+    * El administrador confirma
+    * El set de configuración queda eliminado.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+    * El usuario rechaza la confirmación
+        * El caso de uso finaliza
+    * La empresa del usuario no tiene acceso a esta aplicación
+        * El caso de uso finaliza
+
 #### Caso de uso: Importar usuarios desde módulo externo
 
 * **Descripción**: Se importan usuarios desde módulo externo
@@ -546,4 +736,3 @@ Al existir muchos casos de uso similares, sólo se detallarán los más relevant
 * **Referencias cruzadas**: Caso de uso *Obtener token de aplicación interna*.
 * **Precondiciones**: El usuario tiene acceso a la aplicación.
 * **Postcondiciones**: Se genera un token de acceso para el usuario.
-

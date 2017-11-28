@@ -726,4 +726,32 @@ La monitorización es una parte importante para controlar la estabilidad del sis
 
 En caso de caída de servicio necesitamos tener un sistema de alertas que nos comunique el fallo correspondiente, para ello se utilizará además de *monit*, *Sensu*, que es un sistema configurable de checks para nuestros servicios, *Sensu* es a su vez compatible con sistemas de alerta a equipos de operaciones, como por ejemplo *OpsGenie*.
 
+[@SQLCookbook]
 
+[@DBSConcepts]
+
+[@GoF]
+
+[@EntPatterns]
+
+[@UMLDistilled]
+
+[@AWSTut]
+
+[@TDDExample]
+
+[@2Scoops]
+
+[@Python]
+
+[@PythonPocket]
+
+[@CodeComplete]
+
+[@Pragmatic]
+
+[@TDDPython]
+
+[@STDPython]
+
+[@STDDjango]
