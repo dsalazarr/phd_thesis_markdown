@@ -37,6 +37,8 @@ pdf:
 	-V fontsize=12pt \
 	-V papersize=a4paper \
 	-V documentclass:report \
+	-V mainlang=spanish \
+	-V lang=spanish \
 	-N \
 	--latex-engine=xelatex
 
