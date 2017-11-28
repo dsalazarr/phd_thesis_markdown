@@ -372,6 +372,50 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
     * El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
+#### Caso de uso: Crear regla de acceso de usuario
+
+* **Descripción**: Se añade una regla para controlar las conexiones del usuario
+* **Actores**: Administrador de empresa
+* **Precondiciones**: El usuario existe en el sistema
+* **Postcondiciones**: La regla queda creada y se aplica en cada acceso del usuario
+* **Escenario principal**:
+    * El administrador entra en el menú de crear reglas de usuario
+    * El sistema muestra el formulario para crear reglas
+    * El administrador añade nombre, selecciona operador y añade los parámetros
+    * El sistema valida los datos
+    * La regla queda aplicada.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario identificado no tiene acceso al usuario
+        * El sistema lo indica y el caso de uso termina
+    * Algún parámetro es incorrecto
+        * El sistema lo indica y el caso de uso vuelve al paso anterior
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
+#### Caso de uso: Crear regla de acceso de empresa
+
+* **Descripción**: Se añade una regla para controlar las conexiones de los usuarios de la empresa
+* **Actores**: Administrador de empresa
+* **Precondiciones**: El usuario existe en el sistema
+* **Postcondiciones**: La regla queda creada y se aplica en cada acceso de los usuarios de la empresa
+* **Escenario principal**:
+    * El administrador entra en el menú de crear reglas de usuario
+    * El sistema muestra el formulario para crear reglas
+    * El administrador añade nombre, selecciona operador y añade los parámetros
+    * El sistema valida los datos
+    * La regla queda aplicada.
+* **Escenarios alternativos**:
+    * Las credenciales son incorrectas.
+        * El sistema lo indica y vuelve al paso anterior.
+    * El usuario identificado no tiene acceso al usuario
+        * El sistema lo indica y el caso de uso termina
+    * Algún parámetro es incorrecto
+        * El sistema lo indica y el caso de uso vuelve al paso anterior
+    * El usuario decide cancelar el proceso en cualquier momento
+        * El caso de uso finaliza
+
 #### Caso de uso: Importar usuarios desde módulo externo
 
 * **Descripción**: Se importan usuarios desde módulo externo
