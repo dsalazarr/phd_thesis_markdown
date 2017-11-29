@@ -428,6 +428,8 @@ company_id             INTEGER              NO               FOREIGN_KEY        
 
 -----------------------------------------------------------------------------------
 
+Table: Tabla de usuarios \label{users_table}
+
 ##### Normalización
 
 * La tabla está en primera forma normal ya que:
@@ -459,6 +461,7 @@ name                   VARCHAR(50)          NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
+Table: Tabla de aplicaciones \label{apps_table}
 
 ##### Normalización
 
@@ -488,6 +491,8 @@ code                   VARCHAR(50)          NO               UNIQUE             
 name                   VARCHAR(50)          NO               NO                   Nombre de empresa
 
 -----------------------------------------------------------------------------------------
+
+Table: Tabla de empresas \label{companies_table}
 
 ##### Normalización
 
@@ -523,6 +528,8 @@ expires                INTEGER              NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
+Table: Tabla de access tokens \label{at_table}
+
 ##### Normalización
 
 * La tabla está en primera forma normal ya que:
@@ -550,6 +557,8 @@ token                  VARCHAR(50)          NO               UNIQUE             
 access_token_id        INTEGER              NO               FOREIGN_KEY          Id de usuario
 
 -----------------------------------------------------------------------------------------
+
+Table: Tabla de refresh tokens \label{rt_table}
 
 ##### Normalización
 
@@ -583,34 +592,7 @@ expires                INTEGER              NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
-##### Normalización
-
-* La tabla está en primera forma normal ya que:
-    * Todos los atributos son atómicos.
-    * Tiene clave primaria única (id).
-    * La CP no puede ser nula.
-* La tabla está en segunda forma normal ya que:
-    * Está en 1FN.
-    * Al ser la clave única no puede haber dependencias parciales.
-* La tabla está en tercera forma normal ya que:
-    * Está en 2FN.
-    * No hay dependencias funcionales transitivas.
-* La tabla está en forma normal de Boyce-Codd ya que:
-    * Para toda dependencia funcional X->A X es superllave.
-
-
-#### Token de refresco
-
----------------------------------------------------------------------------------
-Atributos              Tipo                 Nulo             Index                Descripción
--------------          ------------         -----------      --------------       ------------
-id                     INTEGER              NO               PRIMARY_KEY          Identificador autoincremental
-
-token                  VARCHAR(50)          NO               UNIQUE               Token de refresco
-
-access_token_id        INTEGER              NO               FOREIGN_KEY          Id del token de acceso
-
------------------------------------------------------------------------------------------
+Table: Tabla de authorization codes \label{grants_table}
 
 ##### Normalización
 
@@ -641,6 +623,8 @@ duration_days          INTEGER              NO               NO                 
 max_users              INTEGER              NO               NO                   Número máximo de usuarios que permite esta licencia
 
 -----------------------------------------------------------------------------------------
+
+Table: Tabla de licencias \label{licenses_table}
 
 ##### Normalización
 
@@ -674,6 +658,8 @@ end_date               DATETIME             NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
+Table: Tabla de licencias-empresas \label{licenses_companies_table}
+
 ##### Normalización
 
 * La tabla está en primera forma normal ya que:
@@ -703,6 +689,8 @@ key                    VARCHAR(50)          NO               NO                 
 value                  VARCHAR(50)          NO               NO                   Valor de configuración
 
 -----------------------------------------------------------------------------------------
+
+Table: Tabla de configuración global \label{global_config_table}
 
 ##### Normalización
 
@@ -736,6 +724,8 @@ value                  VARCHAR(50)          NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
+Table: Tabla de configuración de empresa \label{company_config_table}
+
 ##### Normalización
 
 * La tabla está en primera forma normal ya que:
@@ -766,6 +756,8 @@ parámetro              VARCHAR(50)          NO               NO                
 
 -----------------------------------------------------------------------------------------
 
+Table: Tabla de reglas de usuario \label{user_rules_table}
+
 ##### Normalización
 
 * La tabla está en primera forma normal ya que:
@@ -795,6 +787,8 @@ operación              VARCHAR(50)          NO               NO                
 parámetro              VARCHAR(50)          NO               NO                   Parámetro a operar
 
 -----------------------------------------------------------------------------------------
+
+Table: Tabla de reglas de empresa \label{company_rules_table}
 
 ##### Normalización
 
@@ -832,6 +826,8 @@ status                 ENUM(OPEN|CLOSED)    NO               NO                 
 
 -----------------------------------------------------------------------------------------
 
+Table: Tabla de incidencias \label{issues_table}
+
 ##### Normalización
 
 * La tabla está en primera forma normal ya que:
@@ -862,6 +858,8 @@ issue_id               INTEGER              NO               FOREIGN_KEY        
 
 -----------------------------------------------------------------------------------------
 
+Table: Tabla de comentarios de incidencias \label{comments_table}
+
 ##### Normalización
 
 * La tabla está en primera forma normal ya que:
@@ -876,6 +874,7 @@ issue_id               INTEGER              NO               FOREIGN_KEY        
     * No hay dependencias funcionales transitivas.
 * La tabla está en forma normal de Boyce-Codd ya que:
     * Para toda dependencia funcional X->A X es superllave.
+
 #### Mensaje
 
 ---------------------------------------------------------------------------------
@@ -892,6 +891,8 @@ contenido              TEXT                 NO               NO                 
 destination            INTEGER              YES              FOREIGN_KEY          Id de usuario destino
 
 -----------------------------------------------------------------------------------------
+
+Table: Tabla de mensajes \label{messages_table}
 
 ##### Normalización
 

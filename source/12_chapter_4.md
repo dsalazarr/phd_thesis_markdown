@@ -27,18 +27,18 @@ Una vez finalizada la instalación de la aplicación el administrador de la empr
 * **Precondiciones**: La aplicación ha sido instalada.
 * **Postcondiciones**: La aplicación queda configurada para su uso.
 * **Escenario principal**:
-    * El sistema muestra un formulario al usuario para que introduzca los datos.
-    * El administrador introduce el nombre de la empresa, su email y su contraseña, que será la contraseña del administrador del sistema.
-    * El sistema valida los datos y muestra al usuario un formulario para introducir usuarios junto con su rol de acceso.
-    * El administrador repite el paso anterior hasta que termine de introducir usuarios
-    * El sistema manda un mail a todos los usuarios introducidos para terminar su configuración
-    * El sistema queda configurado.
+    #. El sistema muestra un formulario al usuario para que introduzca los datos.
+    #. El administrador introduce el nombre de la empresa, su email y su contraseña, que será la contraseña del administrador del sistema.
+    #. El sistema valida los datos y muestra al usuario un formulario para introducir usuarios junto con su rol de acceso.
+    #. El administrador repite el paso anterior hasta que termine de introducir usuarios
+    #. El sistema manda un mail a todos los usuarios introducidos para terminar su configuración
+    #. El sistema queda configurado.
 * **Escenarios alternativos**:
-    * Alguno de los datos introducidos es inválido.
+    * 3. Alguno de los datos introducidos es inválido.
         * El sistema indica el error y el caso de uso vuelve al paso anterior.
-    * El administrador decide dejar el proceso de introducción de usuarios para más tarde.
+    * 4. El administrador decide dejar el proceso de introducción de usuarios para más tarde.
         * El caso de uso termina.
-    * El administrador introduce un email que ya ha introducido previamente.
+    * 3. El administrador introduce un email que ya ha introducido previamente.
         * El sistema indica el error y el caso de uso vuelve al paso anterior.
 
 ### Gestión de usuarios
@@ -52,16 +52,16 @@ Una vez finalizada la instalación de la aplicación el administrador de la empr
 * **Precondiciones**: El administrador se ha identificado correctamente en el sistema.
 * **Postcondiciones**: Se crea un usuario con el perfil correspondiente.
 * **Escenario principal**:
-    * El administrador selecciona una empresa existente para añadir un usuario en ella.
-    * El administrador introduce los datos del usuario y el nivel de privilegios.
-    * El sistema valida que los datos son correctos y no hay ningún usuario con el mismo email.
-    * El sistema crea el usuario y envía un mail al usuario para terminar la configuración
+    #. El administrador selecciona una empresa existente para añadir un usuario en ella.
+    #. El administrador introduce los datos del usuario y el nivel de privilegios.
+    #. El sistema valida que los datos son correctos y no hay ningún usuario con el mismo email.
+    #. El sistema crea el usuario y envía un mail al usuario para terminar la configuración
 * **Escenarios alternativos**:
-    * Alguno de los datos no es correcto.
+    * 3. Alguno de los datos no es correcto.
         * El sistema indica el error y el caso de uso vuelve al paso anterior.
-    * Ya existe algún usuario con el mismo email.
+    * 3. Ya existe algún usuario con el mismo email.
         * El sistema indica el error y el caso de uso vuelve al paso anterior.
-    * En cualquier momento el administrador decide cancelar el proceso.
+    * *. En cualquier momento el administrador decide cancelar el proceso.
         * El caso de uso finaliza.
 
 #### Caso de uso: Terminar configuración de usuario
@@ -71,13 +71,13 @@ Una vez finalizada la instalación de la aplicación el administrador de la empr
 * **Precondiciones**: El usuario ha sido creado previamente por un administrador y el usuario ha recibido un email con un enlace.
 * **Postcondiciones**: El usuario queda configurado y con acceso al sistema.
 * **Escenario principal**:
-    * El usuario abre el link que ha recibido por email.
-    * El sistema muestra un formulario para configurar la contraseña y el resto de datos necesarios.
-    * El usuario introduce los datos.
-    * El sistema valida los datos.
-    * El sistema guarda los datos y da acceso al usuario.
+    #. El usuario abre el link que ha recibido por email.
+    #. El sistema muestra un formulario para configurar la contraseña y el resto de datos necesarios.
+    #. El usuario introduce los datos.
+    #. El sistema valida los datos.
+    #. El sistema guarda los datos y da acceso al usuario.
 * **Escenarios alternativos**:
-    * Alguno de los datos es incorrecto
+    * 4. Alguno de los datos es incorrecto
         * El sistema lo indica y vuelve al paso anterior.
 
 
@@ -88,17 +88,17 @@ Una vez finalizada la instalación de la aplicación el administrador de la empr
 * **Precondiciones**: El usuario que se intenta editar coincide con el identificado en el sistema o bien el usuario identificado es un administrador.
 * **Postcondiciones**: Se actualizan los datos del usuario.
 * **Escenario principal**:
-    * El sistema muestra los datos actuales del usuario.
-    * El usuario modifica sus datos.
-    * El sistema valida que los datos introducidos son correctos y no hay ningún otro usuario con el mismo email.
-    * El usuario elige guardar los datos.
-    * El sistema modifica el usuario.
+    #. El sistema muestra los datos actuales del usuario.
+    #. El usuario modifica sus datos.
+    #. El sistema valida que los datos introducidos son correctos y no hay ningún otro usuario con el mismo email.
+    #. El usuario elige guardar los datos.
+    #. El sistema modifica el usuario.
 * **Escenarios alternativos**:
-    * Alguno de los datos no es correcto.
+    * 3. Alguno de los datos no es correcto.
         * El sistema indica el error y el caso de uso vuelve al paso anterior.
-    * Ya existe algún usuario con el mismo email.
+    * 3. Ya existe algún usuario con el mismo email.
         * El sistema indica el error y el caso de uso vuelve al paso anterior.
-    * En cualquier momento el administrador decide cancelar el proceso.
+    * *. En cualquier momento el administrador decide cancelar el proceso.
         * El caso de uso finaliza.
 
 #### Caso de uso: Ver usuario.
@@ -108,9 +108,9 @@ Una vez finalizada la instalación de la aplicación el administrador de la empr
 * **Precondiciones**: El usuario tiene privilegios de usuario del sistema.
 * **Postcondiciones**: Se muestran los datos del usuario.
 * **Escenario principal**:
-    * El usuario elige un usuario para ver sus datos.
-    * El sistema muestra los datos del usuario.
-    * El sistema muestra las aplicaciones a las que tiene acceso actualmente.
+    #. El usuario elige un usuario para ver sus datos.
+    #. El sistema muestra los datos del usuario.
+    #. El sistema muestra las aplicaciones a las que tiene acceso actualmente.
 
 
 #### Caso de uso: Borrar usuario
@@ -120,12 +120,12 @@ Una vez finalizada la instalación de la aplicación el administrador de la empr
 * **Precondiciones**: El usuario identificado en el sistema tiene permisos para borrar usuarios o bien es administrador de la empresa del usuario a borrar.
 * **Postcondiciones**: El usuario queda borrado
 * **Escenario principal**:
-    * El usuario selecciona un usuario para borrarlo.
-    * El sistema muestra los datos actuales del usuario.
-    * El usuario confirma que quiere borrar al usuario.
-    * El sistema confirma el borrado.
+    #. El usuario selecciona un usuario para borrarlo.
+    #. El sistema muestra los datos actuales del usuario.
+    #. El usuario confirma que quiere borrar al usuario.
+    #. El sistema confirma el borrado.
 * **Escenarios alternativos**:
-    * En cualquier momento el administrador decide cancelar el proceso.
+    * *. En cualquier momento el administrador decide cancelar el proceso.
         * El caso de uso finaliza.
 
 
@@ -142,16 +142,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario tiene nivel de administrador del sistema.
 * **Postcondiciones**: La empresa queda registrada en el sistema
 * **Escenario principal**:
-    * El administrador introduce los datos de la empresa.
-    * El sistema valida que los datos son correctos y no hay ninguna empresa con el mismo nombre.
-    * El administrador selecciona los productos a los que tendrá acceso la empresa.
-    * El sistema crea la empresa.
+    #. El administrador introduce los datos de la empresa.
+    #. El sistema valida que los datos son correctos y no hay ninguna empresa con el mismo nombre.
+    #. El administrador selecciona los productos a los que tendrá acceso la empresa.
+    #. El sistema crea la empresa.
 * **Escenarios alternativos**:
-    * Alguno de los datos no es correcto.
+    * 2. Alguno de los datos no es correcto.
         * El sistema indica el error y el caso de uso vuelve al paso anterior.
-    * Ya existe alguna empresa con el mismo nombre.
+    * 2. Ya existe alguna empresa con el mismo nombre.
         * El sistema indica el error y el caso de uso vuelve al paso anterior.
-    * En cualquier momento el administrador decide cancelar el proceso.
+    * *. En cualquier momento el administrador decide cancelar el proceso.
         * El caso de uso finaliza.
 
 #### Caso de uso: Editar empresa
@@ -161,16 +161,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario tiene privilegios de administrador del sistema.
 * **Postcondiciones**: Se actualizan los datos de la empresa
 * **Escenario principal**:
-    * El sistema muestra los datos actuales de la empresa
-    * El usuario modifica sus datos.
-    * El sistema valida que los datos introducidos son correctos y no hay ningún otro usuario con el mismo email.
-    * El usuario modifica los productos a los que tiene acceso la empresa.
-    * El usuario elige guardar los datos.
-    * El sistema modifica la empresa.
+    #. El sistema muestra los datos actuales de la empresa
+    #. El usuario modifica sus datos.
+    #. El sistema valida que los datos introducidos son correctos y no hay ningún otro usuario con el mismo email.
+    #. El usuario modifica los productos a los que tiene acceso la empresa.
+    #. El usuario elige guardar los datos.
+    #. El sistema modifica la empresa.
 * **Escenarios alternativos**:
-    * Alguno de los datos no es correcto.
+    * 3. Alguno de los datos no es correcto.
         * El sistema indica el error y el caso de uso vuelve al paso anterior.
-    * En cualquier momento el administrador decide cancelar el proceso.
+    * *. En cualquier momento el administrador decide cancelar el proceso.
         * El caso de uso finaliza.
 
 #### Caso de uso: Ver empresa.
@@ -180,10 +180,10 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario tiene privilegios de usuario del sistema.
 * **Postcondiciones**: Se muestran los datos de la empresa
 * **Escenario principal**:
-    * El usuario elige una empresa de las que tiene acceso.
-    * El sistema muestra los datos actuales de la empresa.
-    * El sistema muestra los usuarios de la empresa.
-    * El sistema muestra los productos contratados por la empresa.
+    #. El usuario elige una empresa de las que tiene acceso.
+    #. El sistema muestra los datos actuales de la empresa.
+    #. El sistema muestra los usuarios de la empresa.
+    #. El sistema muestra los productos contratados por la empresa.
 
 #### Caso de uso: Borrar empresa.
 
@@ -192,12 +192,12 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario identificado en el sistema tiene permisos para borrar empresas.
 * **Postcondiciones**: La empresa queda borrada.
 * **Escenario principal**:
-    * El usuario selecciona una empresa para borrarla.
-    * El sistema muestra los datos actuales de la empresa.
-    * El usuario confirma que quiere borrar a la empresa.
-    * El sistema confirma el borrado.
+    #. El usuario selecciona una empresa para borrarla.
+    #. El sistema muestra los datos actuales de la empresa.
+    #. El usuario confirma que quiere borrar a la empresa.
+    #. El sistema confirma el borrado.
 * **Escenarios alternativos**:
-    * En cualquier momento el administrador decide cancelar el proceso.
+    * *. En cualquier momento el administrador decide cancelar el proceso.
         * El caso de uso finaliza.
 
 ### Gestión de productos
@@ -211,10 +211,10 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario identificado en el sistema es un gestor de aplicaciones.
 * **Postcondiciones**: Se selecciona una aplicación para su uso en otra finalidad.
 * **Escenario principal**:
-    * El sistema muestra un listado de las aplicaciones disponibles.
-    * El usuario selecciona la aplicación deseada.
+    #. El sistema muestra un listado de las aplicaciones disponibles.
+    #. El usuario selecciona la aplicación deseada.
 * **Escenarios alternativos**:
-    * No hay ninguna aplicación registrada.
+    * 1. No hay ninguna aplicación registrada.
         * El sistema indica el error y el caso de uso finaliza.
 
 #### Caso de uso: Registrar aplicación
@@ -224,17 +224,17 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario identificado en el sistema es un gestor de aplicaciones.
 * **Postcondiciones**: La aplicación queda registrada.
 * **Escenario principal**:
-    * El gestor introduce el código, el nombre y todos los demás datos de la aplicación.
-    * El sistema comprueba que los datos cumplen el formato.
-    * El sistema confirma el alta de la aplicación mostrando un mensaje.
+    #. El gestor introduce el código, el nombre y todos los demás datos de la aplicación.
+    #. El sistema comprueba que los datos cumplen el formato.
+    #. El sistema confirma el alta de la aplicación mostrando un mensaje.
 * **Escenarios alternativos**:
-    * Alguno de los datos introducidos tiene un formato incorrecto.
+    * 2. Alguno de los datos introducidos tiene un formato incorrecto.
         * El sistema indica el error y se vuelve al paso anterior.
-    * Falta algún campo obligatorio.
+    * 2. Falta algún campo obligatorio.
         * El sistema indica el error y se vuelve al paso anterior.
-    * Ya existe alguna aplicación con ese código o nombre,
+    * 2. Ya existe alguna aplicación con ese código o nombre,
         * El sistema indica el error y se vuelve al paso anterior.
-    * El gestor decide cancelar el registro en cualquier momento
+    * *. El gestor decide cancelar el registro en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Editar aplicación
@@ -244,19 +244,19 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario identificado en el sistema es un gestor de aplicaciones.
 * **Postcondiciones**: La aplicación queda modificada.
 * **Escenario principal**:
-    * Se realiza el caso de uso *seleccionar aplicación*
-    * El sistema muestra sus datos actuales, permitiendo su edición.
-    * El usuario modifica los datos.
-    * El sistema comprueba que los datos son correctos.
-    * El sistema confirma la modificación de la aplicación mostrando un mensaje.
+    #. Se realiza el caso de uso *seleccionar aplicación*
+    #. El sistema muestra sus datos actuales, permitiendo su edición.
+    #. El usuario modifica los datos.
+    #. El sistema comprueba que los datos son correctos.
+    #. El sistema confirma la modificación de la aplicación mostrando un mensaje.
 * **Escenarios alternativos**:
-    * Alguno de los datos introducidos tiene un formato incorrecto.
+    * 4. Alguno de los datos introducidos tiene un formato incorrecto.
         * El sistema indica el error y se vuelve al paso anterior.
-    * Falta algún campo obligatorio.
+    * 4. Falta algún campo obligatorio.
         * El sistema indica el error y se vuelve al paso anterior.
-    * Ya existe alguna aplicación con ese código o nombre,
+    * 4. Ya existe alguna aplicación con ese código o nombre,
         * El sistema indica el error y se vuelve al paso anterior.
-    * El gestor decide cancelar el registro en cualquier momento
+    * *. El gestor decide cancelar el registro en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Borrar aplicación
@@ -266,15 +266,15 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario identificado en el sistema es un gestor de aplicaciones.
 * **Postcondiciones**: La aplicación queda eliminada.
 * **Escenario principal**:
-    * Se realiza el caso de uso *seleccionar aplicación*
-    * El sistema muestra un diálogo de confirmación.
-    * El usuario confirma que quiere eliminar la aplicación.
-    * El sistema elimina la aplicación.
-    * El sistema confirma la eliminación de la aplicación mostrando un mensaje.
+    #. Se realiza el caso de uso *seleccionar aplicación*
+    #. El sistema muestra un diálogo de confirmación.
+    #. El usuario confirma que quiere eliminar la aplicación.
+    #. El sistema elimina la aplicación.
+    #. El sistema confirma la eliminación de la aplicación mostrando un mensaje.
 * **Escenarios alternativos**:
-    * El usuario selecciona que no desea eliminar la aplicación
+    * 3. El usuario selecciona que no desea eliminar la aplicación
         * El caso de uso se reinicia.
-    * El gestor decide cancelar la eliminación en cualquier momento
+    * *. El gestor decide cancelar la eliminación en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Ver detalle de aplicación
@@ -284,10 +284,10 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario identificado en el sistema es un gestor de aplicaciones.
 * **Postcondiciones**: Los datos de la aplicación se muestran por pantqalla
 * **Escenario principal**:
-    * Se realiza el caso de uso *seleccionar aplicación*
-    * El sistema muestra los datos de la aplicación y sus credenciales.
+    #. Se realiza el caso de uso *seleccionar aplicación*
+    #. El sistema muestra los datos de la aplicación y sus credenciales.
 * **Escenarios alternativos**:
-    * El gestor decide cancelar el proceso en cualquier momento
+    * *. El gestor decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 
@@ -298,18 +298,21 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario identificado en el sistema es un administrador de una empresa.
 * **Postcondiciones**: Los usuarios con acceso a la aplicación quedan modificados.
 * **Escenario principal**:
-    * Se realiza el caso de uso *seleccionar aplicación*
-    * El usuario selecciona el rol que quiere editar.
-    * El usuario selecciona los usuarios de su empresa a añadir a la  aplicación.
-    * El usuario vuelve al paso 2 para seleccionar otro rol hasta que haya acabado con todos los roles.
-    * El usuario selecciona guardar.
-    * El sistema modifica los datos
+    #. Se realiza el caso de uso *seleccionar aplicación*
+    #. El usuario selecciona el rol que quiere editar.
+    #. El usuario selecciona los usuarios de su empresa a añadir a la  aplicación.
+    #. El usuario vuelve al paso 2 para seleccionar otro rol hasta que haya acabado con todos los roles.
+    #. El usuario selecciona guardar.
+    #. El sistema modifica los datos
 * **Escenarios alternativos**:
-    * El gestor decide cancelar el proceso en cualquier momento
+    * *. El gestor decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
-## Gestión de incidencias
+### Gestión de incidencias
 
+A continuación se especifican los casos de uso necesarios para llevar a cabo la gestión de las incidencias de las aplicaciones de los clientes del sistema.
+
+![Diagrama de casos de uso de Gestión de incidencias \label{gestion_incidencias}](source/figures/gestion-incidencias.png){ width=50% }
 
 #### Caso de uso: Crear incidencia de aplicación
 
@@ -318,16 +321,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario tiene acceso a la aplicación seleccionada.
 * **Postcondiciones**: La incidencia queda registrada y visible para los administradores.
 * **Escenario principal**:
-    * El usuario selecciona crear incidencia en una aplicación
-    * El sistema muestra el formulario de envío
-    * El usuario redacta la incidencia y la envía
-    * El sistema la registra como pendiente y queda visible a los administradores.
+    #. El usuario selecciona crear incidencia en una aplicación
+    #. El sistema muestra el formulario de envío
+    #. El usuario redacta la incidencia y la envía
+    #. El sistema la registra como pendiente y queda visible a los administradores.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * La aplicación seleccionada no es accesible por el usuario
+    * 1. La aplicación seleccionada no es accesible por el usuario
         * El sistema lo indica y el caso de uso termina
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Añadir comentario a incidencia
@@ -337,18 +340,18 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario tiene acceso a la aplicación seleccionada y la incidencia ha sido registrada por un usuario de la empresa.
 * **Postcondiciones**: El comentario se añade
 * **Escenario principal**:
-    * El usuario selecciona una incidencia creada por él y selecciona añadir un comentario.
-    * El sistema muestra el formulario.
-    * El usuario introduce los datos.
-    * El sistema lo guarda.
+    #. El usuario selecciona una incidencia creada por él y selecciona añadir un comentario.
+    #. El sistema muestra el formulario.
+    #. El usuario introduce los datos.
+    #. El sistema lo guarda.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * La aplicación seleccionada no es accesible por el usuario
+    * 1. La aplicación seleccionada no es accesible por el usuario
         * El sistema lo indica y el caso de uso termina
-    * La incidencia seleccionada no ha sido creada por un usuario de la empresa.
+    * 1. La incidencia seleccionada no ha sido creada por un usuario de la empresa.
         * El sistema lo indica y el caso de uso termina
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Cerrar incidencia
@@ -358,16 +361,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario es administrador
 * **Postcondiciones**: La incidencia queda resuelta
 * **Escenario principal**:
-    * El usuario selecciona una incidencia.
-    * El sistema muestra los datos.
-    * El usuario selecciona completarla.
-    * El sistema muestra el formulario de resolución.
-    * El usuario redacta la resolución y envía.
-    * El sistema cierra la incidencia y notifica al creador.
+    #. El usuario selecciona una incidencia.
+    #. El sistema muestra los datos.
+    #. El usuario selecciona completarla.
+    #. El sistema muestra el formulario de resolución.
+    #. El usuario redacta la resolución y envía.
+    #. El sistema cierra la incidencia y notifica al creador.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Borrar incidencia
@@ -377,20 +380,24 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario tiene acceso a la aplicación seleccionada.
 * **Postcondiciones**: La incidencia queda borrada.
 * **Escenario principal**:
-    * El usuario selecciona una incidencia creada por él y selecciona borrarla.
-    * El sistema pide confirmación.
-    * El usuario confirma.
+    #. El usuario selecciona una incidencia creada por él y selecciona borrarla.
+    #. El sistema pide confirmación.
+    #. El usuario confirma.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * La aplicación seleccionada no es accesible por el usuario
+    * 1. La aplicación seleccionada no es accesible por el usuario
         * El sistema lo indica y el caso de uso termina
-    * La incidencia seleccionada no ha sido creada por el usuario.
+    * 1. La incidencia seleccionada no ha sido creada por el usuario.
         * El sistema lo indica y el caso de uso termina
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
-## Gestión de mensajes
+### Gestión de mensajes
+
+A continuación se especifican los casos de uso necesarios para llevar a cabo la gestión de la mensajería entre usuarios.
+
+![Diagrama de casos de uso de Gestión de mensajes \label{gestion_mensajes}](source/figures/gestion-mensajes.png){ width=50% }
 
 #### Caso de uso: Enviar mensaje a otro usuario
 
@@ -399,18 +406,18 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El destinatario está en la misma empresa que el usuario.
 * **Postcondiciones**: El destinatario recibe el mensaje enviado en su bandeja de entrada.
 * **Escenario principal**:
-    * El usuario selecciona enviar un mensaje nuevo.
-    * El sistema muestra el formulario de envío
-    * El usuario selecciona el usuario destino
-    * El sistema marca el usuario seleccionado como destinatario
-    * El usuario redacta el mensaje y lo envía.
-    * El sistema envía el mensaje al destinatario
+    #. El usuario selecciona enviar un mensaje nuevo.
+    #. El sistema muestra el formulario de envío
+    #. El usuario selecciona el usuario destino
+    #. El sistema marca el usuario seleccionado como destinatario
+    #. El usuario redacta el mensaje y lo envía.
+    #. El sistema envía el mensaje al destinatario
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario destinatario no pertenece a la misma empresa
+    * 3. El usuario destinatario no pertenece a la misma empresa
         * El sistema lo indica y el caso de uso termina
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Ver bandeja de entrada
@@ -420,12 +427,12 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe y está logueado
 * **Postcondiciones**: Se muestra la bandeja de entrada con todos los mensajes recibidos.
 * **Escenario principal**:
-    * El usuario selecciona Ver bandeja de entrada.
-    * El sistema muestra la lista de mensajes.
+    #. El usuario selecciona Ver bandeja de entrada.
+    #. El sistema muestra la lista de mensajes.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Ver mensaje
@@ -435,12 +442,12 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe y está logueado
 * **Postcondiciones**: Se muestra la bandeja de entrada con todos los mensajes recibidos.
 * **Escenario principal**:
-    * El usuario selecciona un mensaje de su bandeja de entrada.
-    * El sistema muestra el contenido del mensaje.
+    #. El usuario selecciona un mensaje de su bandeja de entrada.
+    #. El sistema muestra el contenido del mensaje.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Borrar mensaje
@@ -450,15 +457,19 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe y está logueado
 * **Postcondiciones**: Se muestra la bandeja de entrada con todos los mensajes recibidos.
 * **Escenario principal**:
-    * El usuario selecciona un mensaje de su bandeja de entrada.
-    * El sistema muestra el contenido del mensaje.
+    #. El usuario selecciona un mensaje de su bandeja de entrada.
+    #. El sistema muestra el contenido del mensaje.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
-## Gestión de Reglas de conexión
+### Gestión de Reglas de conexión
+
+A continuación se especifican los casos de uso necesarios para llevar a cabo la gestión de las reglas de conexión de usuarios.
+
+![Diagrama de casos de uso de Gestión de Reglas de conexión \label{gestion_reglas}](source/figures/gestion-reglas.png){ width=50% }
 
 #### Caso de uso: Crear regla de acceso de usuario
 
@@ -467,19 +478,19 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe en el sistema
 * **Postcondiciones**: La regla queda creada y se aplica en cada acceso del usuario
 * **Escenario principal**:
-    * El administrador entra en el menú de crear reglas de usuario
-    * El sistema muestra el formulario para crear reglas
-    * El administrador añade nombre, selecciona operador y añade los parámetros
-    * El sistema valida los datos
-    * La regla queda aplicada.
+    #. El administrador entra en el menú de crear reglas de usuario
+    #. El sistema muestra el formulario para crear reglas
+    #. El administrador añade nombre, selecciona operador y añade los parámetros
+    #. El sistema valida los datos
+    #. La regla queda aplicada.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario identificado no tiene acceso al usuario
+    * 1. El usuario identificado no tiene acceso al usuario
         * El sistema lo indica y el caso de uso termina
-    * Algún parámetro es incorrecto
+    * 4. Algún parámetro es incorrecto
         * El sistema lo indica y el caso de uso vuelve al paso anterior
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Crear regla de acceso de empresa
@@ -489,22 +500,26 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe en el sistema
 * **Postcondiciones**: La regla queda creada y se aplica en cada acceso de los usuarios de la empresa
 * **Escenario principal**:
-    * El administrador entra en el menú de crear reglas de usuario
-    * El sistema muestra el formulario para crear reglas
-    * El administrador añade nombre, selecciona operador y añade los parámetros
-    * El sistema valida los datos
-    * La regla queda aplicada.
+    #. El administrador entra en el menú de crear reglas de usuario
+    #. El sistema muestra el formulario para crear reglas
+    #. El administrador añade nombre, selecciona operador y añade los parámetros
+    #. El sistema valida los datos
+    #. La regla queda aplicada.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario identificado no tiene acceso al usuario
+    * 1. El usuario identificado no tiene acceso al usuario
         * El sistema lo indica y el caso de uso termina
-    * Algún parámetro es incorrecto
+    * 4. Algún parámetro es incorrecto
         * El sistema lo indica y el caso de uso vuelve al paso anterior
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
-## Gestión de configuración
+### Gestión de configuración
+
+A continuación se especifican los casos de uso necesarios para llevar a cabo la gestión de la configuración de aplicaciones.
+
+![Diagrama de casos de uso de Gestión de Configuración \label{gestion_configuracion}](source/figures/gestion-configuracion.png){ width=50% }
 
 #### Caso de uso: Añadir valor de configuración de aplicación
 
@@ -513,16 +528,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: La aplicación existe en el sistema
 * **Postcondiciones**: El valor se añade a la configuración de aplicación
 * **Escenario principal**:
-    * El administrador añade la clave de configuración
-    * El administrador añade el valor de configuración
-    * El sistema valida los datos
-    * El sistema los añade a la configuración
+    #. El administrador añade la clave de configuración
+    #. El administrador añade el valor de configuración
+    #. El sistema valida los datos
+    #. El sistema los añade a la configuración
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * Algún parámetro es incorrecto
+    * 3. Algún parámetro es incorrecto
         * El sistema lo indica y el caso de uso vuelve al paso anterior
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Borrar valor de configuración de aplicación
@@ -532,16 +547,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El valor existe en la configuración de la aplicación
 * **Postcondiciones**: El valor se borra de la configuración de aplicación
 * **Escenario principal**:
-    * El administrador selecciona la clave a borrar
-    * El sistema pide confirmación
-    * El administrador confirma el borrado
-    * El sistema elimina el valor
+    #. El administrador selecciona la clave a borrar
+    #. El sistema pide confirmación
+    #. El administrador confirma el borrado
+    #. El sistema elimina el valor
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
-    * El usuario rechaza la confirmación
+    * 3. El usuario rechaza la confirmación
         * El caso de uso finaliza
 
 #### Caso de uso: Crear configuración de aplicación
@@ -551,14 +566,14 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: La aplicación existe en el sistema
 * **Postcondiciones**: El set de configuración se añade a la aplicación
 * **Escenario principal**:
-    * El administrador entra en el menú de la aplicación y elige crear configuración
-    * El sistema muestra el formulario
-    * Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
-    * La configuración se añade a la aplicación
+    #. El administrador entra en el menú de la aplicación y elige crear configuración
+    #. El sistema muestra el formulario
+    #. Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
+    #. La configuración se añade a la aplicación
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Editar configuración de aplicación
@@ -568,15 +583,15 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: La aplicación existe en el sistema y tiene una configuración creada
 * **Postcondiciones**: El set de configuración queda modificado
 * **Escenario principal**:
-    * El administrador entra en el menú de la aplicación y elige editar su configuración
-    * El sistema muestra el formulario con los valores precargados
-    * Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
-    * Se realiza el caso de uso *eliminar valor de configuración* tantas veces como sea necesario.
-    * La configuración queda modificada.
+    #. El administrador entra en el menú de la aplicación y elige editar su configuración
+    #. El sistema muestra el formulario con los valores precargados
+    #. Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
+    #. Se realiza el caso de uso *eliminar valor de configuración* tantas veces como sea necesario.
+    #. La configuración queda modificada.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Borrar configuración de aplicación
@@ -586,16 +601,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: La aplicación existe en el sistema y tiene una configuración creada
 * **Postcondiciones**: El set de configuración queda borrado
 * **Escenario principal**:
-    * El administrador entra en el menú de la aplicación y elige borrar su configuración
-    * El sistema pide confirmación
-    * El administrador confirma
-    * El set de configuración queda eliminado.
+    #. El administrador entra en el menú de la aplicación y elige borrar su configuración
+    #. El sistema pide confirmación
+    #. El administrador confirma
+    #. El set de configuración queda eliminado.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
-    * El usuario rechaza la confirmación
+    * 3. El usuario rechaza la confirmación
         * El caso de uso finaliza
 
 #### Caso de uso: Añadir valor de configuración de aplicación para empresa
@@ -605,16 +620,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: La aplicación existe en el sistema
 * **Postcondiciones**: El valor se añade a la configuración de aplicación de empresa
 * **Escenario principal**:
-    * El administrador añade la clave de configuración
-    * El administrador añade el valor de configuración
-    * El sistema valida los datos
-    * El sistema los añade a la configuración
+    #. El administrador añade la clave de configuración
+    #. El administrador añade el valor de configuración
+    #. El sistema valida los datos
+    #. El sistema los añade a la configuración
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * Algún parámetro es incorrecto
+    * 3. Algún parámetro es incorrecto
         * El sistema lo indica y el caso de uso vuelve al paso anterior
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Borrar valor de configuración de aplicación de empresa
@@ -624,16 +639,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El valor existe en la configuración de la aplicación
 * **Postcondiciones**: El valor se borra de la configuración de aplicación
 * **Escenario principal**:
-    * El administrador selecciona la clave a borrar
-    * El sistema pide confirmación
-    * El administrador confirma el borrado
-    * El sistema elimina el valor
+    #. El administrador selecciona la clave a borrar
+    #. El sistema pide confirmación
+    #. El administrador confirma el borrado
+    #. El sistema elimina el valor
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
-    * El usuario rechaza la confirmación
+    * 3. El usuario rechaza la confirmación
         * El caso de uso finaliza
 
 #### Caso de uso: Crear configuración de aplicación de empresa
@@ -643,16 +658,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: La aplicación existe en el sistema y la empresa tiene acceso a ella
 * **Postcondiciones**: El set de configuración se añade a la aplicación
 * **Escenario principal**:
-    * El administrador entra en el menú de la aplicación y elige crear configuración
-    * El sistema muestra el formulario
-    * Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
-    * La configuración se añade a la aplicación
+    #. El administrador entra en el menú de la aplicación y elige crear configuración
+    #. El sistema muestra el formulario
+    #. Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
+    #. La configuración se añade a la aplicación
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
-    * La empresa del usuario no tiene acceso a esta aplicación
+    * 1. La empresa del usuario no tiene acceso a esta aplicación
         * El caso de uso finaliza
 
 #### Caso de uso: Editar configuración de aplicación de empresa
@@ -662,17 +677,17 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: La aplicación existe en el sistema y tiene una configuración creada y la empresa tiene acceso a ella
 * **Postcondiciones**: El set de configuración queda modificado
 * **Escenario principal**:
-    * El administrador entra en el menú de la aplicación y elige editar su configuración
-    * El sistema muestra el formulario con los valores precargados
-    * Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
-    * Se realiza el caso de uso *eliminar valor de configuración* tantas veces como sea necesario.
-    * La configuración queda modificada.
+    #. El administrador entra en el menú de la aplicación y elige editar su configuración
+    #. El sistema muestra el formulario con los valores precargados
+    #. Se realiza el caso de uso *añadir valor de configuración* tantas veces como sea necesario.
+    #. Se realiza el caso de uso *eliminar valor de configuración* tantas veces como sea necesario.
+    #. La configuración queda modificada.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
-    * La empresa del usuario no tiene acceso a esta aplicación
+    * 1. La empresa del usuario no tiene acceso a esta aplicación
         * El caso de uso finaliza
 
 #### Caso de uso: Borrar configuración de aplicación
@@ -682,18 +697,18 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: La aplicación existe en el sistema y tiene una configuración creada y la empresa tiene acceso a la aplicación
 * **Postcondiciones**: El set de configuración queda borrado
 * **Escenario principal**:
-    * El administrador entra en el menú de la aplicación y elige borrar su configuración
-    * El sistema pide confirmación
-    * El administrador confirma
-    * El set de configuración queda eliminado.
+    #. El administrador entra en el menú de la aplicación y elige borrar su configuración
+    #. El sistema pide confirmación
+    #. El administrador confirma
+    #. El set de configuración queda eliminado.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
-    * El usuario rechaza la confirmación
+    * 3. El usuario rechaza la confirmación
         * El caso de uso finaliza
-    * La empresa del usuario no tiene acceso a esta aplicación
+    * 1. La empresa del usuario no tiene acceso a esta aplicación
         * El caso de uso finaliza
 
 ## Integraciones
@@ -707,17 +722,17 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario identificado en el sistema es un administrador de aplicaciones.
 * **Postcondiciones**: La aplicación externa queda registrada.
 * **Escenario principal**:
-    * El usuario introduce los datos de la aplicación.
-    * El sistema comprueba que son correctos.
-    * El usuario introduce la url externa para hacer la integración.
-    * El sistema prueba la conexión.
-    * El sistema guarda los datos.
+    #. El usuario introduce los datos de la aplicación.
+    #. El sistema comprueba que son correctos.
+    #. El usuario introduce la url externa para hacer la integración.
+    #. El sistema prueba la conexión.
+    #. El sistema guarda los datos.
 * **Escenarios alternativos**:
-    * Los datos son incorrectos.
+    * 2. Los datos son incorrectos.
         * El sistema lo indica y vuelve al paso anterior.
-    * La conexión con la url externa no se puede realizar.
+    * 3. La conexión con la url externa no se puede realizar.
         * El sistema lo indica y vuelve al paso anterior.
-    * El gestor decide cancelar el proceso en cualquier momento
+    * *. El gestor decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Obtener token de usuario desde aplicación interna
@@ -727,17 +742,17 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe en el sistema y tiene acceso a la aplicación.
 * **Postcondiciones**: La aplicación recibe el token de usuario.
 * **Escenario principal**:
-    * La aplicación redirige al usuario a la web del sistema para identificarse.
-    * El usuario se identifica en el sistema.
-    * El sistema comprueba los datos son correctos.
-    * El sistema comprueba que el usuario tiene acceso a la aplicación.
-    * El sistema devuelve el token a la aplicación.
+    #. La aplicación redirige al usuario a la web del sistema para identificarse.
+    #. El usuario se identifica en el sistema.
+    #. El sistema comprueba los datos son correctos.
+    #. El sistema comprueba que el usuario tiene acceso a la aplicación.
+    #. El sistema devuelve el token a la aplicación.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario identificado no tiene acceso a la aplicación.
+    * 2. El usuario identificado no tiene acceso a la aplicación.
         * El sistema lo indica y el caso de uso termina
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Obtener token de usuario desde apliación externa
@@ -747,17 +762,17 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe en el sistema y tiene acceso a la aplicación.
 * **Postcondiciones**: La aplicación recibe el token de usuario.
 * **Escenario principal**:
-    * La aplicación redirige al usuario a la web del sistema para identificarse.
-    * El usuario se identifica en la aplicación.
-    * El sistema redirige a la web de la aplicación externa.
-    * El usuario se identifica en la aplicación externa.
-    * El sistema devuelve el token a la aplicación.
+    #. La aplicación redirige al usuario a la web del sistema para identificarse.
+    #. El usuario se identifica en la aplicación.
+    #. El sistema redirige a la web de la aplicación externa.
+    #. El usuario se identifica en la aplicación externa.
+    #. El sistema devuelve el token a la aplicación.
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario identificado no tiene acceso a la aplicación.
+    * 1. El usuario identificado no tiene acceso a la aplicación.
         * El sistema lo indica y el caso de uso termina
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Refrescar token de usuario
@@ -767,16 +782,16 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe en el sistema y tiene acceso a la aplicación y tiene un token de refresco.
 * **Postcondiciones**: La aplicación recibe el token de usuario.
 * **Escenario principal**:
-    * La aplicación intenta usar un token expirado.
-    * El sistema responde con un 401
-    * La aplicación manda una petición de refresco con el token de refresco.
-    * El sistema devuelve un nuevo token
+    #. La aplicación intenta usar un token expirado.
+    #. El sistema responde con un 401
+    #. La aplicación manda una petición de refresco con el token de refresco.
+    #. El sistema devuelve un nuevo token
 * **Escenarios alternativos**:
-    * Las credenciales son incorrectas.
+    * 1. Las credenciales son incorrectas.
         * El sistema lo indica y vuelve al paso anterior.
-    * El usuario identificado no tiene acceso a la aplicación.
+    * 1. El usuario identificado no tiene acceso a la aplicación.
         * El sistema lo indica y el caso de uso termina
-    * El usuario decide cancelar el proceso en cualquier momento
+    * *. El usuario decide cancelar el proceso en cualquier momento
         * El caso de uso finaliza
 
 #### Caso de uso: Importar usuarios desde módulo externo
@@ -786,9 +801,9 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe en el sistema y es administrador de una empresa
 * **Postcondiciones**: Los usuarios quedan cargados en la aplicación
 * **Escenario principal**:
-    * El usuario selecciona el método de importación.
-    * El usuario carga los datos siguiendo el método adecuado.
-    * El sistema registra los usuarios en el sistema.
+    #. El usuario selecciona el método de importación.
+    #. El usuario carga los datos siguiendo el método adecuado.
+    #. El sistema registra los usuarios en el sistema.
 
 #### Caso de uso: Sincronizar usuarios con módulo externo
 * **Descripción**: Se sincroniza con una api externa para cargar los usuarios.
@@ -796,9 +811,9 @@ A continuación se especifican los casos de uso necesarios para llevar a cabo la
 * **Precondiciones**: El usuario existe en el sistema y es administrador de una empresa
 * **Postcondiciones**: Los usuarios quedan cargados en la aplicación
 * **Escenario principal**:
-    * El usuario selecciona el método de importación.
-    * El usuario introduce las apis necesarias con las credenciales.
-    * El sistema sincroniza con la api externa.
+    #. El usuario selecciona el método de importación.
+    #. El usuario introduce las apis necesarias con las credenciales.
+    #. El sistema sincroniza con la api externa.
 
 <!--
 Figures can be added with the following syntax:
@@ -864,7 +879,7 @@ Al existir muchos casos de uso similares, sólo se detallarán los más relevant
 
 ### Caso de uso: Añadir aplicación
 
-![Caso de uso: Añadir aplicacion \label{secuencia_anadir_aplicacion}](source/figures/secuencia-anadir-aplicacion.png)
+![Caso de uso: Añadir aplicacion \label{secuencia_registrar_aplicacion}](source/figures/secuencia-registrar-aplicacion.png)
 
 #### Contrato de la operación "introducir datos de aplicación"
 

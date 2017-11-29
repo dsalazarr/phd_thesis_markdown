@@ -57,6 +57,8 @@ En el caso de este proyecto se han decidido dar estimaciones por caso de uso, ya
 
 Teniendo en cuenta estas estimaciones, finalmente obtenemos una estimación total para el periodo de desarrollo del proyecto de entre 65 y 105 días de trabajo, o lo que es lo mismo entre 2 y 3.5 meses.
 
+A partir de aquí podemos calcular el coste del proyecto a partir del precio por día de trabajo.
+
 ## Monetización
 
 Otro aspecto relacionado con la estimación de costes es el modelo de monetización del software una vez que este esté desarrollado. Tener claro este modelo antes de empezar a desarrollar es importante para asegurar el retorno de la inversión. Este es un proyecto pequeño de tipo académico pero viene bien para analizar este tipo de cuestiones. Es obvio que con sin un modelo de negocio pensado de antemano asumimos el riesgo de no recuperar la inversión inicial.

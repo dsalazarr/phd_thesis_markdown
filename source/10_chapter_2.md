@@ -18,13 +18,13 @@ Se realizan diversas reuniones con empleados de una empresa para captar requisit
 
 ## Fase de aprendizaje
 
-Para la realización del proyecto usaron tecnologías de las que se tenían conocimiento. La fase de apren- dizaje consistió principalmente en entender la problemática de la empresa en detalle, entendiendo que tenía que ser una solución que se aplicara de forma genérica.
+Para la realización del proyecto usaron tecnologías de las que se tenían conocimiento. La fase de aprendizaje consistió principalmente en entender la problemática de la empresa en detalle, entendiendo que tenía que ser una solución que se aplicara de forma genérica.
 
 ## Fase de diseño
 
-Fase en la que se realiza el diseño técnico de la arquitectura de la aplicación. Hay que entender como funcionará la aplicación a alto nivel, estructurarla de forma que sea escalable y que pueda atender peti- ciones de múltiples usuarios.
+Fase en la que se realiza el diseño técnico de la arquitectura de la aplicación. Hay que entender como funcionará la aplicación a alto nivel, estructurarla de forma que sea escalable y que pueda atender peticiones de múltiples usuarios.
 
-También entra en esta fase el diseño de la estructura interna de la aplicación, patrones de diseño utiliza- dos, etc.
+También entra en esta fase el diseño de la estructura interna de la aplicación, patrones de diseño utilizados, etc.
 
 ## Implementación
 
